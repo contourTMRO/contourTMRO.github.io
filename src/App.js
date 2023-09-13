@@ -21,14 +21,12 @@ function App() {
   const handlePrev = () => {
     if (currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
-      // setCurrentSlideComponent(slides[currentSlide][1]);
     }
   }
 
   const handleNext = () => {
     if (currentSlide < slides.length - 1) {
       setCurrentSlide(currentSlide + 1);
-      // setCurrentSlideComponent(slides[currentSlide][1]);
     }
   }
 
