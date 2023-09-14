@@ -38,8 +38,13 @@ body {
   justify-content: space-between;
 }
 
+.intro-button-group {
+  display: grid;
+  gap: 10px;
+}
+
 /* CSS */
-.prev, .next {
+.prev, .next, .resident, .student {
   align-items: center;
   appearance: none;
   background-color: #FCFCFD;
