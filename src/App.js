@@ -11,7 +11,7 @@ import React, { useState } from 'react';
 // create an array of slides (pairs) first will be the name of the slide, second will be the component
 const resident_slides = [
   ['Intro', Intro],
-  ['Slide 1', Residentslide1],
+  ['Objectives', Residentslide1],
   ['Slide 2', Residentslide2],
 ]
 
