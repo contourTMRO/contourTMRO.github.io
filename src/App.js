@@ -1,18 +1,20 @@
 import Intro from './Intro.js';
 import Residentslide1 from './residentSlides/Residentslide1.js';
 import Residentslide2 from './residentSlides/Residentslide2.js';
+import Residentslide3 from './residentSlides/Residentslide3.js';
 
 import Studentslide1 from './studentSlides/Studentslide1.js';
 import Studentslide2 from './studentSlides/Studentslide2.js';
 
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // create an array of slides (pairs) first will be the name of the slide, second will be the component
 const resident_slides = [
   ['Intro', Intro],
   ['Objectives', Residentslide1],
   ['Slide 2', Residentslide2],
+  ['Slide 3', Residentslide3],
 ]
 
 const student_slides = [
@@ -30,18 +32,23 @@ function App() {
   //make a const for the current slide
   const CurrentSlideComponent = slides[currentSlide][1];
 
-
-
+  
   // Functions to handle the Previous and Next buttons
   const handlePrev = () => {
+    console.log("handlePrev");
     if (currentSlide > 0) {
+      console.log(currentSlide);
       setCurrentSlide(currentSlide - 1);
+      console.log(currentSlide);
     }
   }
-
+  
   const handleNext = () => {
+    console.log("handleNext");
     if (currentSlide < slides.length - 1) {
+      console.log(currentSlide);
       setCurrentSlide(currentSlide + 1);
+      console.log(currentSlide);
     }
   }
   
@@ -50,11 +57,28 @@ function App() {
     setSlides(resident_slides);
     setCurrentSlide(1);
   }
-
+  
   const handleStudent = () => {
     setSlides(student_slides);
     setCurrentSlide(1);
   }
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (currentSlide === 0) return;
+      if (event.key === "ArrowLeft") {
+        handlePrev();
+      } else if (event.key === "ArrowRight") {
+        handleNext();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentSlide, handlePrev, handleNext]);
+
 
   if(currentSlide === 0) return (
     <div className="slideshow-container">
@@ -83,6 +107,7 @@ function App() {
           </div>
           <div className="button-group">
               <button onClick={handlePrev} className="prev">Previous</button>
+              <p>{currentSlide} / {slides.length - 1}</p>
               <button onClick={handleNext} className="next">Next</button>
           </div>
       </div>

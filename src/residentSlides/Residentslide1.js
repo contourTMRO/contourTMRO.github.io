@@ -4,7 +4,6 @@ import React from 'react';
 function Residentslide1() {
     return (
         <div class="body">
-            <h1>Objectives</h1>
             <p>This training module is intended for residents in radiation oncology</p>
             {/* //add a break */}
             <br></br>

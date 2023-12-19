@@ -1,6 +1,11 @@
 .body {
     color: white;
 }
+
+p {
+    font-size: 25px;
+}
+
 .ol-container {
     text-align: center;
 }
@@ -12,3 +17,29 @@ ol {
     padding-left: 20px; /* Adjust this value as needed */
     margin: 0; /* Removes default margin */
 }
+li {
+    font-size: 25px;
+}
+
+.circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Adjust the height as needed */
+  }
+  
+  .circle {
+    border: 3px solid green; /* Adjust the border color and width as needed */
+    border-radius: 50%;
+    width: 400px; /* Adjust the width as needed */
+    height: 400px; /* Adjust the height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px; /* Adjust the padding as needed */
+  }
+  
+  .circle p {
+    font-size: 16px; /* Adjust the font size as needed */
+    line-height: 1.5; /* Adjust the line height for better readability */
+  }
