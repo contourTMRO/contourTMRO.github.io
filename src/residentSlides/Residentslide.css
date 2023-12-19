@@ -40,6 +40,28 @@ li {
   }
   
   .circle p {
-    font-size: 16px; /* Adjust the font size as needed */
+    font-size: 20px; /* Adjust the font size as needed */
     line-height: 1.5; /* Adjust the line height for better readability */
+  }
+
+  .answers-container {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+  }
+  
+  .answer {
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    margin-bottom: 10px; /* Adjust spacing between options */
+  }
+
+  .answer button {
+    /* make the button a circle */
+    position: relative;
+    display: inline-block;
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    border-radius: 50%; /* Makes the shape circular */
+    border: 2px solid white; /* Change the border color */
+    margin-right: 10px; /* Adjust as needed */
   }

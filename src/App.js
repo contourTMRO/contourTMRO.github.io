@@ -2,6 +2,8 @@ import Intro from './Intro.js';
 import Residentslide1 from './residentSlides/Residentslide1.js';
 import Residentslide2 from './residentSlides/Residentslide2.js';
 import Residentslide3 from './residentSlides/Residentslide3.js';
+import Residentslide4 from './residentSlides/Residentslide4.js';
+import Residentslide5 from './residentSlides/Residentslide5.js';
 
 import Studentslide1 from './studentSlides/Studentslide1.js';
 import Studentslide2 from './studentSlides/Studentslide2.js';
@@ -14,7 +16,9 @@ const resident_slides = [
   ['Intro', Intro],
   ['Objectives', Residentslide1],
   ['Slide 2', Residentslide2],
-  ['Slide 3', Residentslide3],
+  ['Case 1', Residentslide3],
+  ['Case 1', Residentslide4],
+  ['Case 1: Question 1', Residentslide5],
 ]
 
 const student_slides = [
@@ -57,6 +61,13 @@ function App() {
     setSlides(resident_slides);
     setCurrentSlide(1);
   }
+
+  const handleButtonClick = () => {
+    //make the next button unclickable
+    //shade the next button
+    //go
+    console.log("handleButtonClick");
+  };
   
   const handleStudent = () => {
     setSlides(student_slides);
@@ -103,10 +114,11 @@ function App() {
               <h1>{slides[currentSlide][0]}</h1>
           </div>
           <div className="content-box">
-            <CurrentSlideComponent/>
+            {currentSlide === 5 ? <CurrentSlideComponent handlePrev={this.handlePrev}/> : <CurrentSlideComponent />}
+            
           </div>
           <div className="button-group">
-              <button onClick={handlePrev} className="prev">Previous</button>
+              <button onClick={handlePrev} className="prev">Back</button>
               <p>{currentSlide} / {slides.length - 1}</p>
               <button onClick={handleNext} className="next">Next</button>
           </div>
