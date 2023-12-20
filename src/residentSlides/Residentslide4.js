@@ -1,5 +1,4 @@
 import './Residentslide.css';
-import './Residentslide4.css';
 import React from 'react';
 
 function Residentslide4() {

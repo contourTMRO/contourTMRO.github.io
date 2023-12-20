@@ -4,6 +4,9 @@ import Residentslide2 from './residentSlides/Residentslide2.js';
 import Residentslide3 from './residentSlides/Residentslide3.js';
 import Residentslide4 from './residentSlides/Residentslide4.js';
 import Residentslide5 from './residentSlides/Residentslide5.js';
+import Residentslide6 from './residentSlides/Residentslide6.js';
+import Residentslide7 from './residentSlides/Residentslide7.js';
+import Residentslide8 from './residentSlides/Residentslide8.js';
 
 import Studentslide1 from './studentSlides/Studentslide1.js';
 import Studentslide2 from './studentSlides/Studentslide2.js';
@@ -19,6 +22,9 @@ const resident_slides = [
   ['Case 1', Residentslide3],
   ['Case 1', Residentslide4],
   ['Case 1: Question 1', Residentslide5],
+  ['Endometrial Cancer Staging Review', Residentslide6],
+  ['Case 1: Question 2', Residentslide7],
+  ['Case 1: Question 3', Residentslide8],
 ]
 
 const student_slides = [
@@ -27,12 +33,22 @@ const student_slides = [
   ['Slide 2', Studentslide2],
 ]
 
+// Set to hold slides that have a question on it
+const set = new Set();
+
+set.add(JSON.stringify(["resident_slides", 5]));
+set.add(JSON.stringify(["resident_slides", 7]));
+
+
 function App() {
   //create a state variable to keep track of resident or student
   const [slides, setSlides] = useState(resident_slides);
   // Create a state variable to keep track of the current slide index
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  // name of the slides
+  const[slidesName, setSlidesName] = useState("resident_slides");
+  // state variable to keep track of whether the next button should be hidden
+  const [hideNext, setHideNext] = useState(false);
   //make a const for the current slide
   const CurrentSlideComponent = slides[currentSlide][1];
 
@@ -40,6 +56,7 @@ function App() {
   // Functions to handle the Previous and Next buttons
   const handlePrev = () => {
     console.log("handlePrev");
+    setHideNext(false);
     if (currentSlide > 0) {
       console.log(currentSlide);
       setCurrentSlide(currentSlide - 1);
@@ -49,17 +66,33 @@ function App() {
   
   const handleNext = () => {
     console.log("handleNext");
+    if (hideNext) return;
     if (currentSlide < slides.length - 1) {
       console.log(currentSlide);
       setCurrentSlide(currentSlide + 1);
       console.log(currentSlide);
     }
   }
+
+  const handleHideNext = () => {
+    // gray out the next button
+    // make the next button unclickable
+    console.log("handleHideNext");
+    setHideNext(true);
+  }
+
+  const handleUnhideNext = () => {
+    // gray out the next button
+    // make the next button unclickable
+    console.log("handleUnhideNext");
+    setHideNext(false);
+  }
   
   //functions to handle the resident and student buttons
   const handleResident = () => {
     setSlides(resident_slides);
     setCurrentSlide(1);
+    setSlidesName("resident_slides");
   }
 
   const handleButtonClick = () => {
@@ -72,6 +105,7 @@ function App() {
   const handleStudent = () => {
     setSlides(student_slides);
     setCurrentSlide(1);
+    setSlidesName("student_slides");
   }
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -114,13 +148,12 @@ function App() {
               <h1>{slides[currentSlide][0]}</h1>
           </div>
           <div className="content-box">
-            {currentSlide === 5 ? <CurrentSlideComponent handlePrev={this.handlePrev}/> : <CurrentSlideComponent />}
-            
+            {set.has(JSON.stringify([slidesName, currentSlide])) ? <CurrentSlideComponent handleHideNext={handleHideNext} handleUnhideNext={handleUnhideNext}/> : <CurrentSlideComponent />}
           </div>
           <div className="button-group">
               <button onClick={handlePrev} className="prev">Back</button>
               <p>{currentSlide} / {slides.length - 1}</p>
-              <button onClick={handleNext} className="next">Next</button>
+              <button onClick={handleNext} className="next" disabled={hideNext} background-color='gray'>Next</button>
           </div>
       </div>
     );

@@ -52,7 +52,7 @@ li {
   .answer {
     display: flex;
     align-items: center; /* Align items horizontally */
-    margin-bottom: 10px; /* Adjust spacing between options */
+    margin-bottom: 0px; /* Adjust spacing between options */
   }
 
   .answer button {
@@ -65,3 +65,41 @@ li {
     border: 2px solid white; /* Change the border color */
     margin-right: 10px; /* Adjust as needed */
   }
+
+  .image-line img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .image-line {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.image-container-6 img{
+  width: 500px;
+  height: 500px;
+}
+
+.page-6 {
+  display: flex;
+  align-items: center; /* Vertically center content */
+}
+
+.text {
+  flex: 1; /* Occupy remaining space */
+  padding-right: 20px; /* Adjust spacing between text and line */
+}
+
+.image-container-6 {
+  flex: 1; /* Occupy remaining space */
+}
+
+/* Optional: Set image width to fit the container */
+.image-container-6 img {
+  max-width: 100%;
+  height: auto;
+}
+
