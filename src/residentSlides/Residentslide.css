@@ -55,6 +55,21 @@ li {
     margin-bottom: 0px; /* Adjust spacing between options */
   }
 
+  .answer img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+  }
+
+  .correct-answer img {
+    width: 100px;
+    height: auto;
+  }
+
+  .correct-answer P {
+    color : yellow;
+  }
+
   .answer button {
     /* make the button a circle */
     position: relative;
@@ -102,4 +117,27 @@ li {
   max-width: 100%;
   height: auto;
 }
+
+.image-container-9 img {
+  width: 400px;
+  height: auto;
+}
+
+.image-container-12 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.image-container-12 img {
+  width: 300px;
+  height: auto;
+}
+
+.key-12 img {
+  height: 200px;
+  width: auto;
+}
+
 

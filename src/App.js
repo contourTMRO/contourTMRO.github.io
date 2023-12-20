@@ -7,6 +7,13 @@ import Residentslide5 from './residentSlides/Residentslide5.js';
 import Residentslide6 from './residentSlides/Residentslide6.js';
 import Residentslide7 from './residentSlides/Residentslide7.js';
 import Residentslide8 from './residentSlides/Residentslide8.js';
+import Residentslide9 from './residentSlides/Residentslide9.js';
+import Residentslide10 from './residentSlides/Residentslide10.js';
+import Residentslide11 from './residentSlides/Residentslide11.js';
+import Residentslide12 from './residentSlides/Residentslide12.js';
+import Residentslide13 from './residentSlides/Residentslide13.js';
+import Residentslide14 from './residentSlides/Residentslide14.js';
+import Residentslide15 from './residentSlides/Residentslide15.js';
 
 import Studentslide1 from './studentSlides/Studentslide1.js';
 import Studentslide2 from './studentSlides/Studentslide2.js';
@@ -25,6 +32,11 @@ const resident_slides = [
   ['Endometrial Cancer Staging Review', Residentslide6],
   ['Case 1: Question 2', Residentslide7],
   ['Case 1: Question 3', Residentslide8],
+  ['Case 1', Residentslide9],
+  ['Case 1: Question 4', Residentslide10],
+  ['Case 1: Question 5', Residentslide11],
+  ['Case 1', Residentslide12],
+
 ]
 
 const student_slides = [
@@ -38,6 +50,9 @@ const set = new Set();
 
 set.add(JSON.stringify(["resident_slides", 5]));
 set.add(JSON.stringify(["resident_slides", 7]));
+set.add(JSON.stringify(["resident_slides", 8]));
+set.add(JSON.stringify(["resident_slides", 10]));
+set.add(JSON.stringify(["resident_slides", 11]));
 
 
 function App() {

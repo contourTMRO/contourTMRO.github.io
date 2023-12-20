@@ -34,7 +34,7 @@ function Residentslide5({handleHideNext, handleUnhideNext}) {
     return (
         <div class="body">
             <div class="question">
-                <p>What is the recommended treatment for our patient with FIGO stage 1A grade 1 inoperable endometrial cancer?</p>
+                <p>What is the recommended brachytherapy dose and fractionation schedule for our patient?</p>
             </div>
             <div>
                 {buttonAnswer ? (

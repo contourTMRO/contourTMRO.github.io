@@ -34,20 +34,24 @@ function Residentslide5({handleHideNext, handleUnhideNext}) {
     return (
         <div class="body">
             <div class="question">
-                <p>What is the recommended treatment for our patient with FIGO stage 1A grade 1 inoperable endometrial cancer?</p>
+                <p>Which of the following brachytherapy applicators would be most appropriate for treating our patient?</p>
             </div>
             <div>
                 {buttonAnswer ? (
                     <div class="correct-answer">
-                        <p style={{color: 'green'}}>D. 36.5 Gy in 5 Fx delivered in 2 fractions per week</p>
+                        <p style={{color: 'green'}}>C. Tandem & cylinder</p>
+                        <img src="tandem_cylinder.png"></img>
                         <p>
-                        When treating inoperable endometrial cancer with brachytherapy alone, the target EQD2 D90 to the CTV is 48-62.5 Gy as per ABS guidelines. This could be reached using 36.5 Gy in 5 Fx. Note that the EQD2 D90 to the GTV, when delineated, should be 80-90 Gy. The other answer choices represent doses that are too low for brachytherapy alone and would not meet our target EQD2 D90 dose. 10 Gy in 2 Fx is typical dose for vaginal cuff brachytherapy boost following EBRT, and 28 Gy in 4 Fx is often used for cervical cancer brachytherapy boost following EBRT. 21 Gy in 3 Fx represents an appropriate dose for adjuvant vaginal cuff brachytherapy alone following surgical staging.
+                        Tandem & cylinder would be the preferred applicator for our patient with stage IA grade 1 inoperable endometrial cancer.
                         </p>
                         <p>
-                        The other answer choices represent doses that are too low for brachytherapy alone and would not meet our target EQD2 D90 dose.
+                        Vaginal cylinder is an appropriate device for adjuvant vaginal cuff BT following surgical staging with hysterectomy. This allows treatment of the upper 3-5 cm of the vaginal cuff.
                         </p>
                         <p>
-                        10 Gy in 2 Fx is typical dose for vaginal cuff brachytherapy boost following EBRT, and 28 Gy in 4 Fx is often used for cervical cancer brachytherapy boost following EBRT. 21 Gy in 3 Fx represents an appropriate dose for adjuvant vaginal cuff brachytherapy alone following surgical staging.
+                        Ring & tandem or tandem & ovoids are both appropriate applicators for treatment of cervical cancer. The ring and/or ovoids can be loaded with HDR source to treat the cervix.
+                        </p>
+                        <p>
+                        Template-based interstitial BT is indicated if there is extensive disease that cannot be adequately treated using intracavitary applicators. It is generally necessary if there is a fistula between reproductive organs and vagina and/or rectum, distal vaginal disease, and/or pelvic side wall involvement requiring laterally placed interstitial needles. 
                         </p>
                     </div>
                     
@@ -55,19 +59,23 @@ function Residentslide5({handleHideNext, handleUnhideNext}) {
                     <div class="answers-container">
                         <div class="answer">
                             <button type="radio" onClick={() => {makeRed('button1');}}></button>
-                            <p style={{color: button1Color}}>A. 10 Gy in 2 Fx delivered in 2 fractions per week</p>
+                            <p style={{color: button1Color}}>A. Vaginal Cylinder</p>
+                            <img src="vaginal_cylinder.png"></img>
                         </div>
                         <div class="answer">
                             <button type="radio" onClick={() => {makeRed('button2');}}></button>
-                            <p style={{color: button2Color}}>B. 21 Gy in 3 Fx delivered in 2 fractions per week</p>
-                        </div>
-                        <div class="answer">
-                            <button type="radio" onClick={() => {makeRed('button3');}}></button>
-                            <p style={{color: button3Color}}>C. 28 Gy in 4 Fx delivered in 2 fractions per week</p>
+                            <p style={{color: button2Color}}>B. Ring & tandem</p>
+                            <img src="ring_tandem.png"></img>
                         </div>
                         <div class="answer">
                             <button type="radio" onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}></button>
-                            <p>D. 36.5 Gy in 5 Fx delivered in 2 fractions per week</p>
+                            <p>C. Tandem & cylinder</p>
+                            <img src="tandem_cylinder.png"></img>
+                        </div>
+                        <div class="answer">
+                            <button type="radio" onClick={() => {makeRed('button3');}}></button>
+                            <p style={{color: button3Color}}>D. Template-based interstitial applicator</p>
+                            <img src="template_based_interstitial_applicator.png"></img>
                         </div>
                         {answerSelected && <p style={{color : 'red'}}>Incorrect answer. Try again.</p>}
                     </div>
