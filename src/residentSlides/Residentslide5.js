@@ -54,20 +54,28 @@ function Residentslide5({handleHideNext, handleUnhideNext}) {
                 ) : (
                     <div class="answers-container">
                         <div class="answer">
-                            <button type="radio" onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}></button>
-                            <p>A. Brachytherapy alone</p>
+                            <label onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}>
+                                <button type="radio" onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}></button>
+                                <p>A. Brachytherapy alone</p>
+                            </label>
                         </div>
                         <div class="answer">
-                            <button type="radio" onClick={() => {makeRed('button1');}}></button>
-                            <p style={{color: button1Color}}>B. Brachytherapy + external beam radiation therapy (EBRT)</p>
+                            <label onClick={() => {makeRed('button1');}}>
+                                <button type="radio" onClick={() => {makeRed('button1');}}></button>
+                                <p style={{color: button1Color}}>B. Brachytherapy + external beam radiation therapy (EBRT)</p>
+                            </label>
                         </div>
                         <div class="answer">
-                            <button type="radio" onClick={() => {makeRed('button2');}}></button>
-                            <p style={{color: button2Color}}>C. Brachytherapy + chemotherapy</p>
+                            <label onClick={() => {makeRed('button2');}}>
+                                <button type="radio" onClick={() => {makeRed('button2');}}></button>
+                                <p style={{color: button2Color}}>C. Brachytherapy + chemotherapy</p>
+                            </label>
                         </div>
                         <div class="answer">
-                            <button type="radio" onClick={() => {makeRed('button3');}}></button>
-                            <p style={{color: button3Color}}>D. External beam radiation therapy (EBRT) + chemotherapy</p>
+                            <label onClick={() => {makeRed('button3');}}>
+                                <button type="radio" onClick={() => {makeRed('button3');}}></button>
+                                <p style={{color: button3Color}}>D. External beam radiation therapy (EBRT) + chemotherapy</p>
+                            </label>
                         </div>
                         {answerSelected && <p style={{color : 'red'}}>Incorrect answer. Try again.</p>}
                     </div>

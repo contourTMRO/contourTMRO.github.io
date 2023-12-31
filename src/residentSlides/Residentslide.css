@@ -55,6 +55,12 @@ li {
     margin-bottom: 0px; /* Adjust spacing between options */
   }
 
+  label {
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    margin-bottom: 0px; /* Adjust spacing between options */
+  }
+
   .answer img {
     width: 50px;
     height: auto;

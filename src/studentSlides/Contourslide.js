@@ -1,7 +1,16 @@
 import './Studentslide.css';
 import React, { useState, useRef, useEffect } from 'react';
 
-const CombinedSlide = () => {
+//todo
+//1. get the overlay images from Ria
+//2. figure out how to have different overlay for different images (by index)
+//3. Add Horzontal scroll bar 
+//4. Add image counter
+//5. Add zoom functionality (possibly take out touchpad scrolling, or ifgure out another way)
+//6. Disable back and next until the user has drawn on all images and clicked done to view the correct contours
+//7. content 
+
+const Contourslide = () => {
   const imageFiles = Array.from({ length: 30 }, (_, index) => `slice_${index + 1}.jpg`);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [drawnData, setDrawnData] = useState(Array(imageFiles.length).fill(null));
@@ -26,6 +35,15 @@ const CombinedSlide = () => {
         }
     }, [drawnData]);
 
+    const saveDrawnData = (index, ctx) => {
+      const canvasData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
+      const updatedDrawnData = [...drawnData];
+      updatedDrawnData[index] = canvasData;
+      setDrawnData(updatedDrawnData);
+
+      console.log('drawnData:', updatedDrawnData);
+    };
+
     const handleScroll = (event) => {
         const deltaY = event.deltaY;
 
@@ -35,7 +53,9 @@ const CombinedSlide = () => {
             setCurrentImageIndex(prevIndex => Math.max(prevIndex - 1, 0)); // Scroll up
         }
 
-        event.preventDefault();
+        if (event.cancelable) {
+            event.preventDefault();
+        }
         containerRef.current.scrollTop += deltaY * scrollSensitivity;
     };
 
@@ -80,7 +100,7 @@ const CombinedSlide = () => {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
-            ctx.strokeStyle = 'green';
+            ctx.strokeStyle = 'red';
             ctx.lineWidth = 5;
             ctx.lineCap = 'round';
 
@@ -101,15 +121,52 @@ const CombinedSlide = () => {
         canvasRefs.current[index].addEventListener('mousedown', startDrawing);
         canvasRefs.current[index].addEventListener('mousemove', draw);
         canvasRefs.current[index].addEventListener('mouseup', stopDrawing);
+        canvasRefs.current[index].addEventListener('mouseleave', stopDrawing);
 
         return () => {
             canvasRefs.current[index].removeEventListener('mousedown', startDrawing);
             canvasRefs.current[index].removeEventListener('mousemove', draw);
             canvasRefs.current[index].removeEventListener('mouseup', stopDrawing);
+            canvasRefs.current[index].removeEventListener('mouseleave', stopDrawing);
         };
     };
 
+    const putOverlay = () => {
+      const canvasElements = canvasRefs.current;
+      
+      if (!canvasElements || !canvasElements[currentImageIndex]) {
+        console.error('Canvas element not found');
+        console.log(canvasElements); // Log canvas elements to check their structure
+        return;
+      }
+  
+    
+      const canvas = canvasElements[currentImageIndex];
+      console.log(canvas);
+      const ctx = canvas.getContext('2d');
+      
+      if (!ctx) {
+        console.error('2D context not available');
+        return;
+      }
+    
+      const img = new Image();
+      img.src = 'overlay.png'; // Path to your overlay image
+    
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, ctx.canvas.width, ctx.canvas.height);
+        
+        const canvasData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
+        const updatedDrawnData = [...drawnData];
+        updatedDrawnData[currentImageIndex] = canvasData;
+        setDrawnData(updatedDrawnData);
+    
+        // Save or perform any other actions with the modified canvas here
+      };
+    };
+
     return (
+        <div>
         <div
             className="canvas-container"
             style={{ height: '500px', overflowY: 'auto' }}
@@ -125,7 +182,7 @@ const CombinedSlide = () => {
                     style={{
                         display: index === currentImageIndex ? 'block' : 'none',
                         width: '888.88px',
-                        height: '540px',
+                        height: '500px',
                         backgroundImage: `url(${imageFile})`, // Set image as canvas background
                         backgroundSize: '100% 100%',
                         backgroundPosition: 'center',
@@ -134,11 +191,17 @@ const CombinedSlide = () => {
                         const ctx = canvasRefs.current[index].getContext('2d');
                         handleCanvasDraw(index, ctx);
                     }}
-                    onMouseLeave={handleMouseLeave}
+                    onMouseLeave={() => {
+                      const ctx = canvasRefs.current[index].getContext('2d');
+                      saveDrawnData(index, ctx); // Save drawn data on mouse leave
+                      handleMouseLeave();
+                    }}
                 />
             ))}
+        </div>
+            <button onClick={putOverlay}>Overlay</button>
         </div>
     );
 };
 
-export default CombinedSlide;
+export default Contourslide;
