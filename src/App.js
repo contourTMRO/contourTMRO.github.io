@@ -18,6 +18,8 @@ import Residentslide15 from './residentSlides/Residentslide15.js';
 import Studentslide1 from './studentSlides/Studentslide1.js';
 import Studentslide2 from './studentSlides/Studentslide2.js';
 
+import Contourslide from './studentSlides/Contourslide.js';
+
 import './App.css';
 import React, { useState, useEffect } from 'react';
 
@@ -41,6 +43,7 @@ const resident_slides = [
 
 const student_slides = [
   ['Intro', Intro],
+  ['Contour', Contourslide],
   ['Slide 1', Studentslide1],
   ['Slide 2', Studentslide2],
 ]
@@ -76,6 +79,7 @@ function App() {
       console.log(currentSlide);
       setCurrentSlide(currentSlide - 1);
       console.log(currentSlide);
+      document.body.style.overflow = "auto";
     }
   }
   
@@ -86,6 +90,7 @@ function App() {
       console.log(currentSlide);
       setCurrentSlide(currentSlide + 1);
       console.log(currentSlide);
+      document.body.style.overflow = "auto";
     }
   }
 
@@ -93,7 +98,8 @@ function App() {
     // gray out the next button
     // make the next button unclickable
     console.log("handleHideNext");
-    setHideNext(true);
+    // UNCOMMENT
+    // setHideNext(true);
   }
 
   const handleUnhideNext = () => {
