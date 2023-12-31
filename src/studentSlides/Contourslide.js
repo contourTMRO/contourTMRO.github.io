@@ -85,6 +85,7 @@ const Contourslide = () => {
         let isDrawing = false;
 
         const startDrawing = (e) => {
+            if(e.button !== 0) return; // Only draw on left click (0
             isDrawing = true;
             const rect = canvasRefs.current[index].getBoundingClientRect();
             const x = e.clientX - rect.left;
