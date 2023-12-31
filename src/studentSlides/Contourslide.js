@@ -1,44 +1,30 @@
 import './Studentslide.css';
 import React, { useState, useRef, useEffect } from 'react';
 
-const Contourslide = () => {
-    const imageFiles = ['Picture1.png', 'Picture2.png', 'Picture3.png', 'Picture4.png', 'Picture5.png']; // Add your image file names here
+const CombinedSlide = () => {
+  const imageFiles = Array.from({ length: 30 }, (_, index) => `slice_${index + 1}.jpg`);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const imageContainerRef = useRef(null);
+    const [drawnData, setDrawnData] = useState(Array(imageFiles.length).fill(null));
+
+    const canvasRefs = useRef([]);
+    const containerRef = useRef(null);
 
     const [added, setAdded] = useState(false);
-    const [drawing, setDrawing] = useState(false);
-    const canvasRef = useRef(null);
-    const [drawnData, setDrawnData] = useState(Array(imageFiles.length).fill(null));
 
     const scrollSensitivity = 1; // Adjust this value to control the scroll sensitivity
 
     useEffect(() => {
-      if (imageContainerRef.current) {
-          imageContainerRef.current.addEventListener('wheel', handleScroll);
-          window.addEventListener('keydown', handleKeyDown);
-          setAdded(true);
-          document.body.style.overflow = 'hidden';
-      }
-
-      return () => {
-          if (imageContainerRef.current) {
-              imageContainerRef.current.removeEventListener('wheel', handleScroll);
-              window.removeEventListener('keydown', handleKeyDown);
-              document.body.style.overflow = 'auto';
-          }
-      };
-  }, []);
-
-  useEffect(() => {
-      if (canvasRef.current) {
-          const ctx = canvasRef.current.getContext('2d');
-          ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-          if (drawnData[currentImageIndex]) {
-              ctx.putImageData(drawnData[currentImageIndex], 0, 0);
-          }
-      }
-  }, [currentImageIndex, drawnData]);
+        const canvasElements = canvasRefs.current;
+        if (canvasElements.length > 0) {
+            canvasElements.forEach((canvas, index) => {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                if (drawnData[index]) {
+                    ctx.putImageData(drawnData[index], 0, 0);
+                }
+            });
+        }
+    }, [drawnData]);
 
     const handleScroll = (event) => {
         const deltaY = event.deltaY;
@@ -48,9 +34,9 @@ const Contourslide = () => {
         } else if (deltaY < 0) {
             setCurrentImageIndex(prevIndex => Math.max(prevIndex - 1, 0)); // Scroll up
         }
-        // Adjust the scroll sensitivity
+
         event.preventDefault();
-        imageContainerRef.current.scrollTop += deltaY * scrollSensitivity;
+        containerRef.current.scrollTop += deltaY * scrollSensitivity;
     };
 
     const handleKeyDown = (event) => {
@@ -70,55 +56,89 @@ const Contourslide = () => {
         }
     };
 
-    const handleMouseEnter = () => {
-        if (canvasRef.current && imageContainerRef.current) {
-            //add event listener for keydown and keyup
-            if (!added) {
-                imageContainerRef.current.addEventListener('wheel', handleScroll);
-                window.addEventListener('keydown', handleKeyDown);
-            }
-            setAdded(true);
-            document.body.style.overflow = 'hidden';
-        }
+    const handleMouseLeave = () => {
+        window.removeEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = 'auto';
     };
 
-    const handleMouseLeave = () => {
-        if (imageContainerRef.current) {
-            imageContainerRef.current.removeEventListener('wheel', handleScroll);
-            //remove event listener for keydown and keyup
-            window.removeEventListener('keydown', handleKeyDown);
-            document.body.style.overflow = 'auto';
+    const handleCanvasDraw = (index, ctx) => {
+        let isDrawing = false;
+
+        const startDrawing = (e) => {
+            isDrawing = true;
+            const rect = canvasRefs.current[index].getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        };
+
+        const draw = (e) => {
+            if (!isDrawing) return;
+
+            const rect = canvasRefs.current[index].getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            ctx.strokeStyle = 'green';
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        };
+
+        const stopDrawing = () => {
+            isDrawing = false;
+        };
+
+        if (!added) {
+            window.addEventListener('keydown', handleKeyDown);
         }
+        setAdded(true);
+        document.body.style.overflow = 'hidden';
+
+        canvasRefs.current[index].addEventListener('mousedown', startDrawing);
+        canvasRefs.current[index].addEventListener('mousemove', draw);
+        canvasRefs.current[index].addEventListener('mouseup', stopDrawing);
+
+        return () => {
+            canvasRefs.current[index].removeEventListener('mousedown', startDrawing);
+            canvasRefs.current[index].removeEventListener('mousemove', draw);
+            canvasRefs.current[index].removeEventListener('mouseup', stopDrawing);
+        };
     };
 
     return (
         <div
-            className="image-gallery"
+            className="canvas-container"
             style={{ height: '500px', overflowY: 'auto' }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            ref={imageContainerRef}
+            onWheel={handleScroll}
+            ref={containerRef}
         >
-            <div
-                className="scroll-container"
-                style={{ display: 'flex', flexDirection: 'column' }}
-            >
-                {imageFiles.map((imageFile, index) => (
-                    <img
-                        key={index}
-                        src={imageFile}
-                        alt={imageFile}
-                        style={{
-                            display: index === currentImageIndex ? 'block' : 'none',
-                            width: '500px',
-                            height: '500px',
-                        }}
-                    />
-                ))}
-            </div>
+            {imageFiles.map((imageFile, index) => (
+                <canvas
+                    key={index}
+                    ref={(el) => (canvasRefs.current[index] = el)}
+                    width={888.88}
+                    height={500}
+                    style={{
+                        display: index === currentImageIndex ? 'block' : 'none',
+                        width: '888.88px',
+                        height: '540px',
+                        backgroundImage: `url(${imageFile})`, // Set image as canvas background
+                        backgroundSize: '100% 100%',
+                        backgroundPosition: 'center',
+                    }}
+                    onMouseEnter={() => {
+                        const ctx = canvasRefs.current[index].getContext('2d');
+                        handleCanvasDraw(index, ctx);
+                    }}
+                    onMouseLeave={handleMouseLeave}
+                />
+            ))}
         </div>
     );
 };
 
-
-export default Contourslide;
+export default CombinedSlide;
