@@ -20,6 +20,8 @@ const Contourslide = () => {
 
     const [added, setAdded] = useState(false);
 
+    const [isEraserActive, setIsEraserActive] = useState(false);
+
     const scrollSensitivity = 1; // Adjust this value to control the scroll sensitivity
 
     useEffect(() => {
@@ -84,6 +86,8 @@ const Contourslide = () => {
     const handleCanvasDraw = (index, ctx) => {
         let isDrawing = false;
 
+        canvasRefs.current[index].style.cursor = 'crosshair';
+
         const startDrawing = (e) => {
             if(e.button !== 0) return; // Only draw on left click (0
             isDrawing = true;
@@ -101,9 +105,19 @@ const Contourslide = () => {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
-            ctx.strokeStyle = 'red';
-            ctx.lineWidth = 5;
+            ctx.lineWidth = 1;
             ctx.lineCap = 'round';
+            
+
+            if (isEraserActive) {
+                ctx.globalCompositeOperation = 'destination-out'; // Set composite operation to erase
+                ctx.strokeStyle = 'rgba(0,0,0,1)';
+                ctx.lineWidth = 10;
+                canvasRefs.current[index].style.cursor = 'circle_cursor.png 10 10, auto';
+            } else {
+                ctx.globalCompositeOperation = 'source-over'; // Reset to default drawing
+                ctx.strokeStyle = 'red'; // Set drawing color
+            }
 
             ctx.lineTo(x, y);
             ctx.stroke();
@@ -111,6 +125,8 @@ const Contourslide = () => {
 
         const stopDrawing = () => {
             isDrawing = false;
+            ctx.globalCompositeOperation = 'source-over'; // Reset to default drawing
+            ctx.strokeStyle = 'red'; // Set drawing color
         };
 
         if (!added) {
@@ -201,6 +217,9 @@ const Contourslide = () => {
             ))}
         </div>
             <button onClick={putOverlay}>Overlay</button>
+            <button onClick={() => setIsEraserActive(prev => !prev)}>
+                {isEraserActive ? 'Disable Eraser' : 'Enable Eraser'}
+            </button>
         </div>
     );
 };
