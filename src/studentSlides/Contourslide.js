@@ -83,7 +83,8 @@ const Contourslide = () => {
         document.body.style.overflow = 'auto';
     };
 
-    const handleCanvasDraw = (index, ctx) => {
+    const handleCanvasDraw = (index, ctx, isEraserOn) => {
+        console.log("handleCanvasDraw")
         let isDrawing = false;
 
         canvasRefs.current[index].style.cursor = 'crosshair';
@@ -108,15 +109,19 @@ const Contourslide = () => {
             ctx.lineWidth = 1;
             ctx.lineCap = 'round';
             
+            console.log(isEraserOn);
 
-            if (isEraserActive) {
+
+            if (isEraserOn) {
                 ctx.globalCompositeOperation = 'destination-out'; // Set composite operation to erase
                 ctx.strokeStyle = 'rgba(0,0,0,1)';
-                ctx.lineWidth = 10;
+                ctx.lineWidth = 3;
                 canvasRefs.current[index].style.cursor = 'circle_cursor.png 10 10, auto';
             } else {
                 ctx.globalCompositeOperation = 'source-over'; // Reset to default drawing
                 ctx.strokeStyle = 'red'; // Set drawing color
+                ctx.lineWidth = 1;
+                ctx.lineCap = 'round';
             }
 
             ctx.lineTo(x, y);
@@ -206,7 +211,12 @@ const Contourslide = () => {
                     }}
                     onMouseEnter={() => {
                         const ctx = canvasRefs.current[index].getContext('2d');
-                        handleCanvasDraw(index, ctx);
+                        if(isEraserActive) {
+                            handleCanvasDraw(index, ctx, true);
+                        }
+                        else {
+                            handleCanvasDraw(index, ctx, false);
+                        }
                     }}
                     onMouseLeave={() => {
                       const ctx = canvasRefs.current[index].getContext('2d');
@@ -217,8 +227,11 @@ const Contourslide = () => {
             ))}
         </div>
             <button onClick={putOverlay}>Overlay</button>
-            <button onClick={() => setIsEraserActive(prev => !prev)}>
-                {isEraserActive ? 'Disable Eraser' : 'Enable Eraser'}
+            <button onClick={() => setIsEraserActive(true)}>
+                Enable Eraser
+            </button>
+            <button onClick={() => setIsEraserActive(false)}>
+                draw
             </button>
         </div>
     );
