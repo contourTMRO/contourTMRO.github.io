@@ -38,6 +38,9 @@ const resident_slides = [
   ['Case 1: Question 4', Residentslide10],
   ['Case 1: Question 5', Residentslide11],
   ['Case 1', Residentslide12],
+  ['Case 1: Question 6', Residentslide13],
+  ['Case 1: Question 7', Residentslide14],
+  ['Case 1', Residentslide15]
 
 ]
 
@@ -56,6 +59,8 @@ set.add(JSON.stringify(["resident_slides", 7]));
 set.add(JSON.stringify(["resident_slides", 8]));
 set.add(JSON.stringify(["resident_slides", 10]));
 set.add(JSON.stringify(["resident_slides", 11]));
+set.add(JSON.stringify(["resident_slides", 13]));
+set.add(JSON.stringify(["resident_slides", 14]));
 
 
 function App() {

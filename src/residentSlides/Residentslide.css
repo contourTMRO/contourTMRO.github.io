@@ -3,7 +3,7 @@
 }
 
 p {
-    font-size: 25px;
+    font-size: 21px;
 }
 
 .ol-container {
@@ -146,4 +146,17 @@ li {
   width: auto;
 }
 
+/* put a green rectangle around all the text (the whole rectangle div) */
+.rectangle {
+  border: 3px solid green;
+  padding: 20px;
+}
+
+/* center the rectangle container vertically and horizontally */
+.rectangle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
 
