@@ -16,6 +16,11 @@ import Residentslide14 from './residentSlides/Residentslide14.js';
 import Residentslide15 from './residentSlides/Residentslide15.js';
 import Residentslide16 from './residentSlides/Residentslide16.js';
 import Residentslide17 from './residentSlides/Residentslide17.js';
+import Residentslide18 from './residentSlides/Residentslide18.js';
+import Residentslide19 from './residentSlides/Residentslide19.js';
+import Residentslide20 from './residentSlides/Residentslide20.js';
+import Residentslide21 from './residentSlides/Residentslide21.js';
+import Residentslide22 from './residentSlides/Residentslide22.js';
 
 import Studentslide1 from './studentSlides/Studentslide1.js';
 import Studentslide2 from './studentSlides/Studentslide2.js';
@@ -29,7 +34,7 @@ import React, { useState, useEffect } from 'react';
 const resident_slides = [
   ['Intro', Intro],
   ['Objectives', Residentslide1],
-  ['Slide 2', Residentslide2],
+  ['Disclaimer', Residentslide2],
   ['Case 1', Residentslide3],
   ['Case 1', Residentslide4],
   ['Case 1: Question 1', Residentslide5],
@@ -44,7 +49,12 @@ const resident_slides = [
   ['Case 1: Question 7', Residentslide14],
   ['Case 1', Residentslide15],
   ['Case 1 Complete!', Residentslide16],
-  ['Case 2', Residentslide17]
+  ['Case 2', Residentslide17],
+  ['Case 2', Residentslide18],
+  ['Case 2: Question 1', Residentslide19],
+  ['Cervical Cancer Staging Review', Residentslide20],
+  ['Case 2: Question 2', Residentslide21],
+  ['Case 2', Residentslide22]
 
 ]
 
@@ -65,6 +75,8 @@ set.add(JSON.stringify(["resident_slides", 10]));
 set.add(JSON.stringify(["resident_slides", 11]));
 set.add(JSON.stringify(["resident_slides", 13]));
 set.add(JSON.stringify(["resident_slides", 14]));
+set.add(JSON.stringify(["resident_slides", 19]));
+set.add(JSON.stringify(["resident_slides", 21]));
 
 
 function App() {

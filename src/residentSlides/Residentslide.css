@@ -160,3 +160,14 @@ li {
   margin-top: 100px;
 }
 
+.image-line22 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.image-line22 img {
+  width: 220px;
+  height: 220px;
+}
