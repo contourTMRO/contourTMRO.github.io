@@ -15,6 +15,7 @@ import Residentslide13 from './residentSlides/Residentslide13.js';
 import Residentslide14 from './residentSlides/Residentslide14.js';
 import Residentslide15 from './residentSlides/Residentslide15.js';
 import Residentslide16 from './residentSlides/Residentslide16.js';
+import Residentslide17 from './residentSlides/Residentslide17.js';
 
 import Studentslide1 from './studentSlides/Studentslide1.js';
 import Studentslide2 from './studentSlides/Studentslide2.js';
@@ -42,7 +43,8 @@ const resident_slides = [
   ['Case 1: Question 6', Residentslide13],
   ['Case 1: Question 7', Residentslide14],
   ['Case 1', Residentslide15],
-  ['Case 1 Complete!', Residentslide16]
+  ['Case 1 Complete!', Residentslide16],
+  ['Case 2', Residentslide17]
 
 ]
 
