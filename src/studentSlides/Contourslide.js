@@ -173,7 +173,9 @@ const Contourslide = () => {
       }
     
       const img = new Image();
-      img.src = 'overlay.png'; // Path to your overlay image
+      let num = currentImageIndex + 1;
+      console.log('overlayPhotos/overlay_' + num + '.png');
+      img.src = 'overlayPhotos/overlay_' + num + '.png'; // Path to your overlay image
     
       img.onload = () => {
         ctx.drawImage(img, 0, 0, ctx.canvas.width, ctx.canvas.height);
