@@ -143,16 +143,12 @@ function App() {
   }
 
   const handleHideNext = () => {
-    // gray out the next button
-    // make the next button unclickable
     console.log("handleHideNext");
     // UNCOMMENT
-    // setHideNext(true);
+    setHideNext(true);
   }
 
   const handleUnhideNext = () => {
-    // gray out the next button
-    // make the next button unclickable
     console.log("handleUnhideNext");
     setHideNext(false);
   }
@@ -165,9 +161,6 @@ function App() {
   }
 
   const handleButtonClick = () => {
-    //make the next button unclickable
-    //shade the next button
-    //go
     console.log("handleButtonClick");
   };
   
