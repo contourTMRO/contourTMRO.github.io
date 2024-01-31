@@ -171,3 +171,13 @@ li {
   width: 220px;
   height: 220px;
 }
+
+.references li {
+  font-size: 14px;
+  /* align to the left */
+  text-align: left;
+}
+
+.references p {
+  font-size: 15px;
+}

@@ -52,20 +52,29 @@ function Residentslide10({handleHideNext, handleUnhideNext}) {
                 ) : (
                     <div class="answers-container">
                         <div class="answer">
+                            <label onClick={() => {makeRed('button1');}}>
                             <button type="radio" onClick={() => {makeRed('button1');}}></button>
                             <p style={{color: button1Color}}>A. CTV includes the entire uterus, cervix, and upper 3-5 cm of the vagina.</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}>
                             <button type="radio" onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}></button>
                             <p>B. CTV includes the entire uterus, cervix, and upper 1-2 cm of the vagina.</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => (makeRed('button2'))}>
                             <button type="radio" onClick={() => {makeRed('button2');}}></button>
                             <p style={{color: button2Color}}>C. CTV includes the GTV with an additional 2 cm margin, obeying natural barriers to spread (i.e., CTV will not extend outside the uterus, cervix, or vagina).</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            {/* make label */}
+                            <label onClick={() => {makeRed('button3')}}>
                             <button type="radio" onClick={() => {makeRed('button3');}}></button>
-                            <p style={{color: button3Color}}>D. CTV includes the entire uterus and cervix only. </p>
+                            <p style={{color: button3Color}}>D. CTV includes the entire uterus and cervix only.</p>
+                            </label>
                         </div>
                         {answerSelected && <p style={{color : 'red'}}>Incorrect answer. Try again.</p>}
                     </div>

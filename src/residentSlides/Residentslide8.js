@@ -58,24 +58,32 @@ function Residentslide5({handleHideNext, handleUnhideNext}) {
                 ) : (
                     <div class="answers-container">
                         <div class="answer">
+                            <label onClick={() => {makeRed('button1');}}>
                             <button type="radio" onClick={() => {makeRed('button1');}}></button>
                             <p style={{color: button1Color}}>A. Vaginal Cylinder</p>
                             <img src="vaginal_cylinder.png"></img>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {makeRed('button2');}}>
                             <button type="radio" onClick={() => {makeRed('button2');}}></button>
                             <p style={{color: button2Color}}>B. Ring & tandem</p>
                             <img src="ring_tandem.png"></img>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}>
                             <button type="radio" onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}></button>
                             <p>C. Tandem & cylinder</p>
                             <img src="tandem_cylinder.png"></img>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {makeRed('button3');}}>
                             <button type="radio" onClick={() => {makeRed('button3');}}></button>
                             <p style={{color: button3Color}}>D. Template-based interstitial applicator</p>
                             <img src="template_based_interstitial_applicator.png"></img>
+                            </label>
                         </div>
                         {answerSelected && <p style={{color : 'red'}}>Incorrect answer. Try again.</p>}
                     </div>

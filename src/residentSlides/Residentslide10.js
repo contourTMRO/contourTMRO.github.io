@@ -49,20 +49,28 @@ function Residentslide10({handleHideNext, handleUnhideNext}) {
                 ) : (
                     <div class="answers-container">
                         <div class="answer">
+                            <label onClick={() => {makeRed('button1');}}>
                             <button type="radio" onClick={() => {makeRed('button1');}}></button>
                             <p style={{color: button1Color}}>A. T1-weighted MRI without contrast</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {makeRed('button2');}}>
                             <button type="radio" onClick={() => {makeRed('button2');}}></button>
                             <p style={{color: button2Color}}>B. T1-weighted MRI with contrast</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}>
                             <button type="radio" onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}></button>
                             <p>C. T2-weighted MRI</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {makeRed('button3');}}>
                             <button type="radio" onClick={() => {makeRed('button3');}}></button>
                             <p style={{color: button3Color}}>D. Diffusion weighted imaging</p>
+                            </label>
                         </div>
                         {answerSelected && <p style={{color : 'red'}}>Incorrect answer. Try again.</p>}
                     </div>

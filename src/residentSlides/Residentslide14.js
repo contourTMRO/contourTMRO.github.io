@@ -51,20 +51,28 @@ function Residentslide14({handleHideNext, handleUnhideNext}) {
                 ) : (
                     <div class="answers-container">
                         <div class="answer">
+                            <label onClick={() => {makeRed('button1');}}>
                             <button type="radio" onClick={() => {makeRed('button1');}}></button>
                             <p style={{color: button1Color}}>A. Bladder: 65 Gy; Rectum/Sigmoid: 65 Gy; Small Bowel: 45 Gy</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {makeRed('button2');}}>
                             <button type="radio" onClick={() => {makeRed('button2');}}></button>
                             <p>B. Bladder: 85 Gy; Rectum/Sigmoid: 85 Gy; Small Bowel: 65 Gy</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}>
                             <button type="radio" onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}></button>
                             <p style={{color: button2Color}}>C. Bladder: 85 Gy; Rectum/Sigmoid: 75 Gy; Small Bowel: 65 Gy</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {makeRed('button3');}}>
                             <button type="radio" onClick={() => {makeRed('button3');}}></button>
                             <p style={{color: button3Color}}>D. Bladder: 100 Gy; Rectum/Sigmoid: 90 Gy; Small Bowel: 70 Gy</p>
+                            </label>
                         </div>
                         {answerSelected && <p style={{color : 'red'}}>Incorrect answer. Try again.</p>}
                     </div>

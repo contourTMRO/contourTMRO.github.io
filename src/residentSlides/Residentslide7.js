@@ -54,20 +54,28 @@ function Residentslide5({handleHideNext, handleUnhideNext}) {
                 ) : (
                     <div class="answers-container">
                         <div class="answer">
+                            <label onClick={() => {makeRed('button1');}}>
                             <button type="radio" onClick={() => {makeRed('button1');}}></button>
                             <p style={{color: button1Color}}>A. 10 Gy in 2 Fx delivered in 2 fractions per week</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {makeRed('button2');}}>
                             <button type="radio" onClick={() => {makeRed('button2');}}></button>
                             <p style={{color: button2Color}}>B. 21 Gy in 3 Fx delivered in 2 fractions per week</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {makeRed('button3');}}>
                             <button type="radio" onClick={() => {makeRed('button3');}}></button>
                             <p style={{color: button3Color}}>C. 28 Gy in 4 Fx delivered in 2 fractions per week</p>
+                            </label>
                         </div>
                         <div class="answer">
+                            <label onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}>
                             <button type="radio" onClick={() => {handleUnhideNext(); setButtonAnswer(true)}}></button>
                             <p>D. 36.5 Gy in 5 Fx delivered in 2 fractions per week</p>
+                            </label>
                         </div>
                         {answerSelected && <p style={{color : 'red'}}>Incorrect answer. Try again.</p>}
                     </div>

@@ -21,6 +21,17 @@ import Residentslide19 from './residentSlides/Residentslide19.js';
 import Residentslide20 from './residentSlides/Residentslide20.js';
 import Residentslide21 from './residentSlides/Residentslide21.js';
 import Residentslide22 from './residentSlides/Residentslide22.js';
+import Residentslide23 from './residentSlides/Residentslide23.js';
+import Residentslide24 from './residentSlides/Residentslide24.js';
+import Residentslide25 from './residentSlides/Residentslide25.js';
+import Residentslide26 from './residentSlides/Residentslide26.js';
+import Residentslide27 from './residentSlides/Residentslide27.js';
+import Residentslide28 from './residentSlides/Residentslide28.js';
+import Residentslide29 from './residentSlides/Residentslide29.js';
+import Residentslide30 from './residentSlides/Residentslide30.js';
+import Residentslide31 from './residentSlides/Residentslide31.js';
+import Residentslide32 from './residentSlides/Residentslide32.js';
+import Residentslide33 from './residentSlides/Residentslide33.js';
 
 import Studentslide1 from './studentSlides/Studentslide1.js';
 import Studentslide2 from './studentSlides/Studentslide2.js';
@@ -54,8 +65,18 @@ const resident_slides = [
   ['Case 2: Question 1', Residentslide19],
   ['Cervical Cancer Staging Review', Residentslide20],
   ['Case 2: Question 2', Residentslide21],
-  ['Case 2', Residentslide22]
-
+  ['Case 2', Residentslide22],
+  ['Case 2: Question 3', Residentslide23],
+  ['Case 2: Question 4', Residentslide24],
+  ['Case 2: Question 5', Residentslide25],
+  ['Case 2', Residentslide26],
+  ['Case 2: Question 6', Residentslide27],
+  ['Case 2', Residentslide28],
+  ['Case 2: Question 7', Residentslide29],
+  ['Case 2: Question 8', Residentslide30],
+  ['Case 2', Residentslide31],
+  ['Module Complete!', Residentslide32],
+  ['References', Residentslide33]
 ]
 
 const student_slides = [
@@ -77,6 +98,12 @@ set.add(JSON.stringify(["resident_slides", 13]));
 set.add(JSON.stringify(["resident_slides", 14]));
 set.add(JSON.stringify(["resident_slides", 19]));
 set.add(JSON.stringify(["resident_slides", 21]));
+set.add(JSON.stringify(["resident_slides", 23]));
+set.add(JSON.stringify(["resident_slides", 24]));
+set.add(JSON.stringify(["resident_slides", 25]));
+set.add(JSON.stringify(["resident_slides", 27]));
+set.add(JSON.stringify(["resident_slides", 29]));
+set.add(JSON.stringify(["resident_slides", 30]));
 
 
 function App() {
