@@ -37,6 +37,7 @@ import Studentslide1 from './studentSlides/Studentslide1.js';
 import Studentslide2 from './studentSlides/Studentslide2.js';
 
 import Contourslide from './studentSlides/Contourslide.js';
+import Contourslidecopy from './studentSlides/Contourslide-copy.js';
 
 import './App.css';
 import React, { useState, useEffect } from 'react';
