@@ -153,40 +153,66 @@ const Contourslide = () => {
         };
     };
 
-    const putOverlay = () => {
-      const canvasElements = canvasRefs.current;
-      
-      if (!canvasElements || !canvasElements[currentImageIndex]) {
-        console.error('Canvas element not found');
-        console.log(canvasElements); // Log canvas elements to check their structure
-        return;
-      }
-  
-    
-      const canvas = canvasElements[currentImageIndex];
-      console.log(canvas);
-      const ctx = canvas.getContext('2d');
-      
-      if (!ctx) {
-        console.error('2D context not available');
-        return;
-      }
-    
-      const img = new Image();
-      let num = currentImageIndex + 1;
-      console.log('overlayPhotos/overlay_' + num + '.png');
-      img.src = 'overlayPhotos/overlay_' + num + '.png'; // Path to your overlay image
-    
-      img.onload = () => {
-        ctx.drawImage(img, 0, 0, ctx.canvas.width, ctx.canvas.height);
-        
-        const canvasData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
-        const updatedDrawnData = [...drawnData];
-        updatedDrawnData[currentImageIndex] = canvasData;
-        setDrawnData(updatedDrawnData);
-    
-        // Save or perform any other actions with the modified canvas here
+    const putOverlay = async () => {
+      const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+      const loadImage = (src, index) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.onload = () => resolve({ img, index });
+          img.onerror = () => reject(index);
+          img.src = src;
+        });
       };
+    
+      const putOverlayOnCanvas = async (canvas, index) => {
+        const ctx = canvas.getContext('2d');
+      
+        if (!ctx) {
+          console.error(`2D context not available for canvas at index ${index}`);
+          return;
+        }
+      
+        const imgSrc = `overlayPhotos/Overlay_${index + 1}.png`;
+      
+        try {
+          const { img } = await loadImage(imgSrc, index);
+          console.log(`Overlay image ${index + 1} loaded for canvas at index ${index}`);
+      
+          // Wait for the image to load before proceeding
+          await new Promise((resolve) => setTimeout(resolve, 0));
+      
+          await ctx.drawImage(img, 0, 0, ctx.canvas.width, ctx.canvas.height);
+
+          // saveDrawnData(index, ctx); // Save drawn data after overlay is added
+      
+          // const canvasData = await ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
+          // const updatedDrawnData = [...drawnData];
+          // updatedDrawnData[index] = canvasData;
+          // setDrawnData(updatedDrawnData);
+      
+          // Save or perform any other actions with the modified canvas here
+        } catch (errorIndex) {
+          console.error(`Failed to load overlay image for canvas at index ${errorIndex}`);
+        }
+      };      
+    
+      const canvasElements = canvasRefs.current;
+
+      if (!canvasElements) {
+        console.error('Canvas elements not found');
+        return;
+      }
+
+      for (let index = 0; index < canvasElements.length; index++) {
+        try {
+          await putOverlayOnCanvas(canvasElements[index], index);
+        } catch (error) {
+          console.error('Error loading overlay image:', error);
+        }
+        // await delay(100);
+      }
+
+      console.log('All overlay images loaded successfully.');
     };
 
     return (
@@ -222,13 +248,13 @@ const Contourslide = () => {
                     }}
                     onMouseLeave={() => {
                       const ctx = canvasRefs.current[index].getContext('2d');
-                      saveDrawnData(index, ctx); // Save drawn data on mouse leave
+                      // saveDrawnData(index, ctx); // Save drawn data on mouse leave
                       handleMouseLeave();
                     }}
                 />
             ))}
         </div>
-            <button onClick={putOverlay}>Overlay</button>
+            <button onClick={putOverlay}>Overlay All Images</button>
             <button onClick={() => setIsEraserActive(true)}>
                 Enable Eraser
             </button>
