@@ -106,26 +106,36 @@ const Contourslide = () => {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 3;
             ctx.lineCap = 'round';
             
             console.log(isEraserOn);
+
+            const img = new Image();
+            img.src = 'circle_cursor.png';
+            img.onload = () => console.log('Image loaded successfully');
+            img.onerror = () => console.log('Error loading image');
 
 
             if (isEraserOn) {
                 ctx.globalCompositeOperation = 'destination-out'; // Set composite operation to erase
                 ctx.strokeStyle = 'rgba(0,0,0,1)';
-                ctx.lineWidth = 3;
-                canvasRefs.current[index].style.cursor = 'circle_cursor.png 10 10, auto';
+                // ctx.lineWidth = 20;
+                // canvasRefs.current[index].style.cursor = 'url(circle_cursor_2.png), auto';
             } else {
                 ctx.globalCompositeOperation = 'source-over'; // Reset to default drawing
                 ctx.strokeStyle = 'red'; // Set drawing color
-                ctx.lineWidth = 1;
+                // ctx.lineWidth = 1;
                 ctx.lineCap = 'round';
             }
 
             ctx.lineTo(x, y);
             ctx.stroke();
+
+            // ctx.fillStyle = 'red';
+            // ctx.beginPath();
+            // ctx.arc(x, y, .5, 0, Math.PI * 2);
+            // ctx.fill();
         };
 
         const stopDrawing = () => {
@@ -154,7 +164,7 @@ const Contourslide = () => {
     };
 
     const putOverlay = async () => {
-      const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+      // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
       const loadImage = (src, index) => {
         return new Promise((resolve, reject) => {
           const img = new Image();
