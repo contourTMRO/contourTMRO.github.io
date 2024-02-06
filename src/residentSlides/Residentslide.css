@@ -53,6 +53,7 @@ li {
     display: flex;
     align-items: center; /* Align items horizontally */
     margin-bottom: 0px; /* Adjust spacing between options */
+    text-align: left;
   }
 
   label {
@@ -62,7 +63,7 @@ li {
   }
 
   .answer img {
-    width: 50px;
+    width: 150px;
     height: auto;
     margin-right: 10px;
   }

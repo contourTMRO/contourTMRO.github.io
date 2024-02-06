@@ -35,6 +35,39 @@ import Residentslide33 from './residentSlides/Residentslide33.js';
 
 import Studentslide1 from './studentSlides/Studentslide1.js';
 import Studentslide2 from './studentSlides/Studentslide2.js';
+import Studentslide3 from './studentSlides/Studentslide3.js';
+import Studentslide4 from './studentSlides/Studentslide4.js';
+import Studentslide5 from './studentSlides/Studentslide5.js';
+import Studentslide6 from './studentSlides/Studentslide6.js';
+import Studentslide7 from './studentSlides/Studentslide7.js';
+import Studentslide8 from './studentSlides/Studentslide8.js';
+import Studentslide9 from './studentSlides/Studentslide9.js';
+import Studentslide10 from './studentSlides/Studentslide10.js';
+import Studentslide11 from './studentSlides/Studentslide11.js';
+import Studentslide12 from './studentSlides/Studentslide12.js';
+import Studentslide13 from './studentSlides/Studentslide13.js';
+import Studentslide14 from './studentSlides/Studentslide14.js';
+import Studentslide15 from './studentSlides/Studentslide15.js';
+import Studentslide16 from './studentSlides/Studentslide16.js';
+import Studentslide17 from './studentSlides/Studentslide17.js';
+import Studentslide18 from './studentSlides/Studentslide18.js';
+import Studentslide19 from './studentSlides/Studentslide19.js';
+import Studentslide20 from './studentSlides/Studentslide20.js';
+import Studentslide21 from './studentSlides/Studentslide21.js';
+import Studentslide22 from './studentSlides/Studentslide22.js';
+import Studentslide23 from './studentSlides/Studentslide23.js';
+import Studentslide24 from './studentSlides/Studentslide24.js';
+import Studentslide25 from './studentSlides/Studentslide25.js';
+import Studentslide26 from './studentSlides/Studentslide26.js';
+import Studentslide27 from './studentSlides/Studentslide27.js';
+import Studentslide29 from './studentSlides/Studentslide29.js';
+import Studentslide30 from './studentSlides/Studentslide30.js';
+import Studentslide31 from './studentSlides/Studentslide31.js';
+import Studentslide32 from './studentSlides/Studentslide32.js';
+import Studentslide33 from './studentSlides/Studentslide33.js';
+import Studentslide34 from './studentSlides/Studentslide34.js';
+import Studentslide35 from './studentSlides/Studentslide35.js';
+
 
 import Contourslide from './studentSlides/Contourslide.js';
 import Contourslidecopy from './studentSlides/Contourslide-copy.js';
@@ -82,9 +115,41 @@ const resident_slides = [
 
 const student_slides = [
   ['Intro', Intro],
+  ['What is radiation oncology?', Studentslide1],
+  ['How does radiation therapy work?', Studentslide2],
+  ['Electron Direct Effect', Studentslide3],
+  ['Electron Indirect Effect', Studentslide4],
+  ['How is radiation delivered?', Studentslide5],
+  ['LINAC', Studentslide6],
+  ['Placeholder', Studentslide7],
+  ['Question 1', Studentslide8],
+  ['Prescribing radiation', Studentslide9],
+  ['Sample Case', Studentslide10],
+  ['Case Vignette', Studentslide11],
+  ['Question 2: Can radiation help this patient?' , Studentslide12],
+  ['Question 13: Bladder cancer staging', Studentslide13],
+  ['Palliative radiation', Studentslide14],
+  ['Placeholder', Studentslide15],
+  ['Placeholder', Studentslide16],
+  ['Overview of the radiation process', Studentslide17],
+  ['Simulation scan', Studentslide18],
+  ['Placeholder', Studentslide19],
+  ['Placeholder', Studentslide20],
+  ['Placeholder', Studentslide21],
+  ['Placeholder', Studentslide22],
+  ['Placeholder', Studentslide23],
+  ['Placeholder', Studentslide24],
+  ['Placeholder', Studentslide25],
+  ['Placeholder', Studentslide26],
+  ['Placeholder', Studentslide27],
   ['Contour', Contourslide],
-  ['Slide 1', Studentslide1],
-  ['Slide 2', Studentslide2],
+  ['Placeholder', Studentslide29],
+  ['Placeholder', Studentslide30],
+  ['Placeholder', Studentslide31],
+  ['Placeholder', Studentslide32],
+  ['Placeholder', Studentslide33],
+  ['Placeholder', Studentslide34],
+  ['Placeholder', Studentslide35],
 ]
 
 // Set to hold slides that have a question on it
@@ -105,6 +170,11 @@ set.add(JSON.stringify(["resident_slides", 25]));
 set.add(JSON.stringify(["resident_slides", 27]));
 set.add(JSON.stringify(["resident_slides", 29]));
 set.add(JSON.stringify(["resident_slides", 30]));
+
+set.add(JSON.stringify(["student_slides", 8]));
+set.add(JSON.stringify(["student_slides", 12]));
+set.add(JSON.stringify(["student_slides", 13]));
+
 
 
 function App() {
@@ -146,7 +216,7 @@ function App() {
   const handleHideNext = () => {
     console.log("handleHideNext");
     // UNCOMMENT
-    setHideNext(true);
+    // setHideNext(true);
   }
 
   const handleUnhideNext = () => {

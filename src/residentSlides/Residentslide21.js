@@ -33,7 +33,7 @@ function Residentslide21({ handleHideNext, handleUnhideNext }) {
   return (
     <div class="body">
       <div class="question">
-        <p>Why is this patient's cervical cancer classified as stage IIB?</p>
+        <p>What is the recommended treatment for our patient with stage IIB squamous cell carcinoma of the cervix?</p>
       </div>
       <div>
         {buttonAnswer ? (

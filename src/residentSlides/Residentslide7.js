@@ -49,14 +49,7 @@ function Residentslide5({ handleHideNext, handleUnhideNext }) {
               When treating inoperable endometrial cancer with brachytherapy
               alone, the target EQD2 D90 to the CTV is 48-62.5 Gy as per ABS
               guidelines. This could be reached using 36.5 Gy in 5 Fx. Note that
-              the EQD2 D90 to the GTV, when delineated, should be 80-90 Gy. The
-              other answer choices represent doses that are too low for
-              brachytherapy alone and would not meet our target EQD2 D90 dose.
-              10 Gy in 2 Fx is typical dose for vaginal cuff brachytherapy boost
-              following EBRT, and 28 Gy in 4 Fx is often used for cervical
-              cancer brachytherapy boost following EBRT. 21 Gy in 3 Fx
-              represents an appropriate dose for adjuvant vaginal cuff
-              brachytherapy alone following surgical staging.
+              the EQD2 D90 to the GTV, when delineated, should be 80-90 Gy.
             </p>
             <p>
               The other answer choices represent doses that are too low for

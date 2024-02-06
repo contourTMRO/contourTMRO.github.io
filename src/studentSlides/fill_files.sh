@@ -4,18 +4,18 @@
 generate_file_content() {
     local slide_number="$1"
     
-    echo "import './Residentslide.css';
+    echo "import './Studentslide.css';
 import React from 'react';
 
-function Residentslide$slide_number() {
-    return (
-        <div class=\"body\">
+function Studentslide$slide_number() {
+  return (
+    <div class=\"body\">
            
-        </div>
-    );
+    </div>
+  );
 }
   
-export default Residentslide$slide_number;"
+export default Studentslide$slide_number;"
 }
 
 # Function to create files
@@ -25,7 +25,7 @@ create_files() {
     
     for ((slide_number = start_slide; slide_number <= end_slide; slide_number++))
     do
-        local file_name="Residentslide$slide_number.js"
+        local file_name="Studentslide$slide_number.js"
         local file_content="$(generate_file_content $slide_number)"
         
         echo "$file_content" > "$file_name"
@@ -34,4 +34,4 @@ create_files() {
 }
 
 # Usage: create_files <start_slide> <end_slide>
-create_files 3 49
+create_files 3 42

@@ -2,6 +2,15 @@
   color: white;
 }
 
+/* .ul-container {
+  text-align: center;
+} */
+
+ul { 
+  list-style-position: inside;
+  text-align: center;
+}
+
 .image-gallery {
   width: 100%;
   height: 500px; /* Set desired height for the gallery */
@@ -17,5 +26,215 @@
 .canvas-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.sslide1_image {
+  width: 47%;
+  height: auto;
+}
+
+p em {
+  color: green;
+}
+
+li em {
+  color: green;
+}
+
+.sslide3_image {
+  width: 700px;
+  height: auto;
+}
+
+/* make the image appear on the right side of the p tags */
+.sslide5_image {
+  width: 600px;
+  height: auto;
+}
+
+.sslide6_image {
+  width: 900px;
+  height: auto;
+}
+
+.sslide6 {
+  display: flex;
+  align-items: center;
+}
+
+.sslide7_image {
+  width: 500px;
+  height: auto;
+}
+
+.sslide7_key {
+  width: 200px;
+  height: auto;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Adjust the height as needed */
+}
+
+.circle {
+  border: 3px solid green; /* Adjust the border color and width as needed */
+  border-radius: 50%;
+  width: 400px; /* Adjust the width as needed */
+  height: 400px; /* Adjust the height as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+.circle p {
+  font-size: 20px; /* Adjust the font size as needed */
+  line-height: 1.5; /* Adjust the line height for better readability */
+}
+
+.sslide15_image {
+  width: 800px;
+  height: auto;
+}
+
+.purple_box {
+  background-color: purple;
+  color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.green_box {
+  background-color: green;
+  color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.sslide17_image {
+  width: 1000px;
+  height: auto;
+}
+
+.sslide18_image {
+  width: 1000px;
+  height: auto;
+}
+
+.sslide18_mri {
+  width: 350px;
+  height: auto;
+}
+
+.turquoise_box {
+  background-color: turquoise;
+  color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.image-lines {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sslide20_form {
+  width: 800px;
+}
+
+.sslide19_image {
+  width: 400px;
+  height: auto;
+}
+
+.tan {
+  color: tan;
+}
+
+.sslide23_image {
+  width: 300px;
+  height: auto;
+}
+
+.sslide23_image2 {
+  width: 250px;
+  height: auto;
+}
+
+.sslide24_image {
+  width: 500px;
+  height: auto;
+}
+
+.sslide25_image {
+  width: 300px;
+  height: auto;
+}
+
+.orange_box {
+  background-color: orange;
+  color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.canvas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.contour-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.contour_icon {
+  width: 30px;
+  height: auto;
+}
+
+/* .icons {
+  display: block;
+} */
+
+/* make the buttons round */
+.icons button {
+  border-radius: 20%; /* Makes the shape circular */
+
+  background-color: lightblue;
+  border: none;
+  cursor: pointer;
+  margin: 15px;
+  display: block
+}
+
+.icons img {
+  margin: 10px;
+  display: block;
+}
+
+.icon_button {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }

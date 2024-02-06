@@ -1,9 +1,9 @@
-import "./Residentslide.css";
-import React from "react";
+import './Studentslide.css';
+import React from 'react';
 import { useEffect } from "react";
 import { useState } from "react";
 
-function Residentslide14({ handleHideNext, handleUnhideNext }) {
+function Studentslide13({ handleHideNext, handleUnhideNext }) {
   const [buttonAnswer, setButtonAnswer] = useState(false);
   const [button1Color, setButton1Color] = useState("white");
   const [button2Color, setButton2Color] = useState("white");
@@ -35,35 +35,16 @@ function Residentslide14({ handleHideNext, handleUnhideNext }) {
     <div class="body">
       <div class="question">
         <p>
-          Which of the following is the recommended EQD2 to 90% of the CTV
-          volume (D90) for stage I endometrial cancer patients treated with
-          brachytherapy alone?
+          What stage cancer does Mr. C have?
         </p>
       </div>
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>
-              C. Bladder: 85 Gy; Rectum/Sigmoid: 75 Gy; Small Bowel: 65 Gy
-            </p>
+            <p style={{ color: "green" }}>D. Stage IV</p>
             <p>
-              There is limited data for maximum tolerated doses to OAR
-              specifically in medically inoperable endometrial cancer.
-              Extrapolating from data in cervical cancer, the ABS panel
-              recommends D2CC to sigmoid and rectum be limited to 70-75 Gy, D2cc
-              to bladder be limited to 80-100 Gy, and D2cc limit of 65 Gy to
-              small bowel be considered (Georg et al., 2011; Schwartz et al.,
-              2015).
-            </p>
-            <p>
-              In practice we try to limit rectum/sigmoid dose to 65 Gy, or 70 Gy
-              at the most, to limit toxicity to these organs. The rationale for
-              this is that most inoperable endometrial cancer patients die from
-              some other cause, not endometrial cancer. If brachytherapy
-              treatment results in severe toxicity to rectum or sigmoid such as
-              perforation, these patients are also not candidates for surgery.
-              Hence, it is very important to limit toxicity and prioritize
-              constraints in these patients.
+              The answer is D. Distant metastasis automatically makes cancer stage IV. This pattern applies to nearly 
+              all cancers.
             </p>
           </div>
         ) : (
@@ -81,7 +62,7 @@ function Residentslide14({ handleHideNext, handleUnhideNext }) {
                   }}
                 ></button>
                 <p style={{ color: button1Color }}>
-                  A. Bladder: 65 Gy; Rectum/Sigmoid: 65 Gy; Small Bowel: 45 Gy
+                  A. Stage I
                 </p>
               </label>
             </div>
@@ -98,7 +79,24 @@ function Residentslide14({ handleHideNext, handleUnhideNext }) {
                   }}
                 ></button>
                 <p style={{ color: button2Color }}>
-                  B. Bladder: 85 Gy; Rectum/Sigmoid: 85 Gy; Small Bowel: 65 Gy
+                  B. Stage II
+                </p>
+              </label>
+            </div>
+            <div class="answer">
+              <label
+                onClick={() => {
+                  makeRed("button3");
+                }}
+              >
+                <button
+                  type="radio"
+                  onClick={() => {
+                    makeRed("button3");
+                  }}
+                ></button>
+                <p style={{ color: button3Color }}>
+                  C. Stage III
                 </p>
               </label>
             </div>
@@ -116,26 +114,7 @@ function Residentslide14({ handleHideNext, handleUnhideNext }) {
                     setButtonAnswer(true);
                   }}
                 ></button>
-                <p>
-                  C. Bladder: 85 Gy; Rectum/Sigmoid: 75 Gy; Small Bowel: 65 Gy
-                </p>
-              </label>
-            </div>
-            <div class="answer">
-              <label
-                onClick={() => {
-                  makeRed("button3");
-                }}
-              >
-                <button
-                  type="radio"
-                  onClick={() => {
-                    makeRed("button3");
-                  }}
-                ></button>
-                <p style={{ color: button3Color }}>
-                  D. Bladder: 100 Gy; Rectum/Sigmoid: 90 Gy; Small Bowel: 70 Gy
-                </p>
+                <p>D. Stage IV</p>
               </label>
             </div>
             {answerSelected && (
@@ -147,5 +126,5 @@ function Residentslide14({ handleHideNext, handleUnhideNext }) {
     </div>
   );
 }
-
-export default Residentslide14;
+  
+export default Studentslide13;

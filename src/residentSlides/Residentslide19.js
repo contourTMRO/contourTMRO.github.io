@@ -69,7 +69,7 @@ function Residentslide19({ handleHideNext, handleUnhideNext }) {
                     setButtonAnswer(true);
                   }}
                 ></button>
-                <p>A. Brachytherapy alone</p>
+                <p>A. Parametrial Invasion</p>
               </label>
             </div>
             <div class="answer">
