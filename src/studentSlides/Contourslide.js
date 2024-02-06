@@ -99,7 +99,7 @@ const Contourslide = () => {
     canvasRefs.current[index].style.cursor = "crosshair";
 
     const startDrawing = (e) => {
-      if (done || e.button !== 0) return; // Only draw on left click (0
+      if (e.button !== 0) return; // Only draw on left click (0
       isDrawing = true;
       const rect = canvasRefs.current[index].getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -109,7 +109,7 @@ const Contourslide = () => {
     };
 
     const draw = (e) => {
-      if (done || !isDrawing) return;
+      if (!isDrawing) return;
 
       const rect = canvasRefs.current[index].getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -137,14 +137,14 @@ const Contourslide = () => {
         ctx.lineCap = "round";
       }
 
-      if (done) {
-        ctx.globalCompositeOperation = "source-over"; // Reset to default drawing
-        ctx.strokeStyle = 'red';
-        console.log('done:', done);
-      }
-      else {
-        console.log('done:', done);
-      }
+    //   if (done) {
+    //     ctx.globalCompositeOperation = "source-over"; // Reset to default drawing
+    //     ctx.strokeStyle = 'red';
+    //     console.log('done:', done);
+    //   }
+    //   else {
+    //     console.log('done:', done);
+    //   }
       
 
       ctx.lineTo(x, y);
@@ -167,14 +167,6 @@ const Contourslide = () => {
     setAdded(true);
     document.body.style.overflow = "hidden";
 
-    if (done) {
-        canvasRefs.current[index].removeEventListener("mousedown", startDrawing);
-        canvasRefs.current[index].removeEventListener("mousemove", draw);
-        canvasRefs.current[index].removeEventListener("mouseup", stopDrawing);
-        canvasRefs.current[index].removeEventListener("mouseleave", stopDrawing);
-        return;
-    }
-
     canvasRefs.current[index].addEventListener("mousedown", startDrawing);
     canvasRefs.current[index].addEventListener("mousemove", draw);
     canvasRefs.current[index].addEventListener("mouseup", stopDrawing);
@@ -192,8 +184,8 @@ const Contourslide = () => {
     // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     if (currentImageIndex !== 29) return;
 
-    setDone(true);
-    setIsEraserActive(false);
+    // setDone(true);
+    // setIsEraserActive(false);
     const loadImage = (src, index) => {
       return new Promise((resolve, reject) => {
         const img = new Image();
@@ -251,8 +243,8 @@ const Contourslide = () => {
         await putOverlayOnCanvas(canvasElements[index], index);
         //change the marker color to transparent
         const ctx = canvasElements[index].getContext("2d");
-        ctx.globalCompositeOperation = "source-over"; // Reset to default drawing
-        ctx.strokeStyle = 'transparent';
+        // ctx.globalCompositeOperation = "source-over"; // Reset to default drawing
+        // ctx.strokeStyle = 'transparent';
       } catch (error) {
         console.error("Error loading overlay image:", error);
       }
@@ -287,9 +279,9 @@ const Contourslide = () => {
               backgroundPosition: "center",
             }}
             onMouseEnter={() => {
-              if (done) {
-                return;
-              }
+            //   if (done) {
+            //     return;
+            //   }
               const ctx = canvasRefs.current[index].getContext("2d");
               if (isEraserActive) {
                 handleCanvasDraw(index, ctx, true);

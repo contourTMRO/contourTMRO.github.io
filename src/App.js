@@ -67,9 +67,17 @@ import Studentslide32 from './studentSlides/Studentslide32.js';
 import Studentslide33 from './studentSlides/Studentslide33.js';
 import Studentslide34 from './studentSlides/Studentslide34.js';
 import Studentslide35 from './studentSlides/Studentslide35.js';
+import Studentslide36 from './studentSlides/Studentslide36.js';
+import Studentslide37 from './studentSlides/Studentslide37.js';
+import Studentslide38 from './studentSlides/Studentslide38.js';
+import Studentslide39 from './studentSlides/Studentslide39.js';
+import Studentslide40 from './studentSlides/Studentslide40.js';
+import Studentslide41 from './studentSlides/Studentslide41.js';
+import Studentslide42 from './studentSlides/Studentslide42.js';
 
 
 import Contourslide from './studentSlides/Contourslide.js';
+import Contourintro from './studentSlides/Contourintro.js';
 import Contourslidecopy from './studentSlides/Contourslide-copy.js';
 
 import './App.css';
@@ -142,14 +150,21 @@ const student_slides = [
   ['Placeholder', Studentslide25],
   ['Placeholder', Studentslide26],
   ['Placeholder', Studentslide27],
+  ['Contourintro', Contourintro],
   ['Contour', Contourslide],
-  ['Placeholder', Studentslide29],
   ['Placeholder', Studentslide30],
   ['Placeholder', Studentslide31],
   ['Placeholder', Studentslide32],
   ['Placeholder', Studentslide33],
   ['Placeholder', Studentslide34],
   ['Placeholder', Studentslide35],
+  ['Placeholder', Studentslide36],
+  ['Placeholder', Studentslide37],
+  ['Placeholder', Studentslide38],
+  ['Placeholder', Studentslide39],
+  ['Placeholder', Studentslide40],
+  ['Placeholder', Studentslide41],
+  ['Placeholder', Studentslide42],
 ]
 
 // Set to hold slides that have a question on it
