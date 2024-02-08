@@ -189,6 +189,7 @@ set.add(JSON.stringify(["resident_slides", 30]));
 set.add(JSON.stringify(["student_slides", 8]));
 set.add(JSON.stringify(["student_slides", 12]));
 set.add(JSON.stringify(["student_slides", 13]));
+set.add(JSON.stringify(["student_slides", 32]));
 
 
 

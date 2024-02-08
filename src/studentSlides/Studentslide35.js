@@ -4,27 +4,36 @@ import React from 'react';
 function Studentslide35() {
   return (
     <div class="body">
-      <img class="sslide18_image" src="sslide_highlight3.png"/>
       <p>
-        Next, it's time for us to evaluate the radiation treatment plan.
+        When we evaluate a radiation plan, we can look at the <em>dose distribution</em> by looking at what are called <em>isodose lines</em>.
         <br/>
         <br/>
-        When we evaluate a palliative radiation treatment plan, the most important things to check are:
+        Each <em>isodose line</em> corresponds to a certain percentage of target dose coverage.
       </p>
-      <ol>
-        <li>Does the beam arrangement make sense?</li>
-        <li>
-          Is the PTV adequately covered?
-          <ul>
-            <li><em>Dose distribution</em></li>
-            <li><em>Target coverage</em></li>
-          </ul>
-        </li>
-      </ol>
-      <p class="purple_box">
-        We already came up with a beam arrangement that makes the most sense.
-        Let's take a look at PTV coverage.
-      </p>
+      <div class="image-lines">
+        <img class="sslide35_image" src="sslide35_scan.png"/>
+        <div>
+          <p style={{tabSize: '4'}}>
+            <em class="red">Dose maximum: 108%</em>
+            <br/>
+            Isodose lines (%):
+            <br/>
+            <em class="red">110%</em>
+            <br/>
+            <em class="yellow">100%</em>
+            <br/>
+            <em>90%</em>
+            <br/>
+            <em class="blue">80%</em>
+            <br/>
+            <br/>
+            Remember, the <em class="orange">orange contour</em> is our <em class="orange">PTV</em>.
+          </p>
+          <p class="purple_box">
+            Let's take a closer look at how to interpret isodose lines.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

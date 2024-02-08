@@ -4,23 +4,26 @@ import React from 'react';
 function Studentslide34() {
   return (
     <div class="body">
-      <p class="purple_box">
-        Our dosimetrists are a little cleverer though...
+      <img class="sslide18_image" src="sslide_highlight3.png"/>
+      <p>
+        Next, it's time for us to evaluate the radiation treatment plan.
+        <br/>
+        <br/>
+        When we evaluate a palliative radiation treatment plan, the most important things to check are:
       </p>
-      <div class="image-lines">
-        <img class="sslide34_image" src="sslide34_scan1.png"/>
-        <p>
-          We decide to use 2 anterior fields at oblique angles + 1 posterior field.
-          <br/>
-          <br/>
-          This way, each beam is responsible for delivering 33% of the dose.
-          <br/>
-          <br/>
-          By pushing 66% of the dose from the 2 anterior beams, we decrease the dose to the rectum.
-        </p>
-      </div>
+      <ol>
+        <li>Does the beam arrangement make sense?</li>
+        <li>
+          Is the PTV adequately covered?
+          <ul>
+            <li><em>Dose distribution</em></li>
+            <li><em>Target coverage</em></li>
+          </ul>
+        </li>
+      </ol>
       <p class="purple_box">
-        They set the above fields and finalize a radiation treatment plan.
+        We already came up with a beam arrangement that makes the most sense.
+        Let's take a look at PTV coverage.
       </p>
     </div>
   );

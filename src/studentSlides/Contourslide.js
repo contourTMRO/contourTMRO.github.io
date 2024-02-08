@@ -258,51 +258,61 @@ const Contourslide = () => {
   return (
     <div>
     <div class="contour-top">
-      <div
-        className="canvas-container"
-        style={{ height: "500px", overflowY: "auto" }}
-        onWheel={handleScroll}
-        ref={containerRef}
-      >
-        {imageFiles.map((imageFile, index) => (
-          <canvas
-            key={index}
-            ref={(el) => (canvasRefs.current[index] = el)}
-            width={888.88}
-            height={500}
-            style={{
-              display: index === currentImageIndex ? "block" : "none",
-              width: "888.88px",
-              height: "500px",
-              backgroundImage: `url(${imageFile})`, // Set image as canvas background
-              backgroundSize: "100% 100%",
-              backgroundPosition: "center",
-            }}
-            onMouseEnter={() => {
-            //   if (done) {
-            //     return;
-            //   }
-              const ctx = canvasRefs.current[index].getContext("2d");
-              if (isEraserActive) {
-                handleCanvasDraw(index, ctx, true);
-              } else {
-                handleCanvasDraw(index, ctx, false);
-              }
-            }}
-            onMouseLeave={() => {
-              const ctx = canvasRefs.current[index].getContext("2d");
-              // saveDrawnData(index, ctx); // Save drawn data on mouse leave
-              handleMouseLeave();
-            }}
-          />
-        ))}
+      <div>
+          <div
+            className="canvas-container"
+            style={{ height: "500px", overflowY: "auto" }}
+            onWheel={handleScroll}
+            ref={containerRef}
+          >
+            {imageFiles.map((imageFile, index) => (
+              <canvas
+                key={index}
+                ref={(el) => (canvasRefs.current[index] = el)}
+                width={888.88}
+                height={500}
+                style={{
+                  display: index === currentImageIndex ? "block" : "none",
+                  width: "888.88px",
+                  height: "500px",
+                  backgroundImage: `url(${imageFile})`, // Set image as canvas background
+                  backgroundSize: "100% 100%",
+                  backgroundPosition: "center",
+                }}
+                onMouseEnter={() => {
+                //   if (done) {
+                //     return;
+                //   }
+                  const ctx = canvasRefs.current[index].getContext("2d");
+                  if (isEraserActive) {
+                    handleCanvasDraw(index, ctx, true);
+                  } else {
+                    handleCanvasDraw(index, ctx, false);
+                  }
+                }}
+                onMouseLeave={() => {
+                  const ctx = canvasRefs.current[index].getContext("2d");
+                  // saveDrawnData(index, ctx); // Save drawn data on mouse leave
+                  handleMouseLeave();
+                }}
+              />
+            ))}
+          </div>
+          <div className="canvas-counter">
+            Scan {currentImageIndex + 1} of {imageFiles.length}
+          </div>
       </div>
       <div class="icons">
         <div class = "icon_button"><button onClick={() => setIsEraserActive(true)}><img class = "contour_icon" src = "eraser_icon.svg" /></button>Eraser</div>
         <div class = "icon_button"><button onClick={() => setIsEraserActive(false)}><img class = "contour_icon" src = "marker_icon.png" /></button>Marker</div>
+        {currentImageIndex === 29 ? (
+          <div class = "icon_button"><button onClick={putOverlay}><img class = "contour_icon" src = "check_mark_icon.png" /></button>Done!</div>
+        )
+        : (
+          <div class = "icon_button"><button class = "disabled" onClick={putOverlay} disabled><img class = "contour_icon" src = "check_mark_icon.png" /></button>Done?</div>
+        )}
       </div>
     </div>
-    <button onClick={putOverlay}>Overlay All Images</button>
     </div>
   );
 };

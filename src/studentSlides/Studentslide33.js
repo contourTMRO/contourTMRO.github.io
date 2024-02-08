@@ -5,27 +5,23 @@ function Studentslide33() {
   return (
     <div class="body">
       <p class="purple_box">
-        AP/PA makes more sense! Let's think about why
+        Our dosimetrists are a little cleverer though...
       </p>
       <div class="image-lines">
-        <figure>
-          <img class="sslide32_image" src="sslide32_scan1.png"/>
-          <figcaption>
-            a. AP/PA (anterior posterior/posterior anterior)
-          </figcaption>
-        </figure>
+        <img class="sslide33_image" src="sslide34_scan1.png"/>
         <p>
-          No matter which beam arrangement we use, the bladder & the rectum (located just posterior to the bladder) 
-          will receive significant incidental radiation dose.
+          We decide to use 2 anterior fields at oblique angles + 1 posterior field.
           <br/>
           <br/>
-          AP/PA beams will at least avoid treating all the bone and muscle lateral to the tumor.
+          This way, each beam is responsible for delivering 33% of the dose.
           <br/>
           <br/>
-          With this arrangement, we will deliver 50% of dose through the anterior beam, and 50% of dose 
-          through the posterior beam.
+          By pushing 66% of the dose from the 2 anterior beams, we decrease the dose to the rectum.
         </p>
       </div>
+      <p class="purple_box">
+        They set the above fields and finalize a radiation treatment plan.
+      </p>
     </div>
   );
 }
