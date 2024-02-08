@@ -1,7 +1,7 @@
 import "./Studentslide.css";
 import React, { useState, useRef, useEffect } from "react";
 
-const Contourslide = () => {
+const Contourslide = ({ handleHideNext, handleUnhideNext, handleHidePrev, handleUnhidePrev }) => {
   const imageFiles = Array.from(
     { length: 30 },
     (_, index) => `slice_${index + 1}.jpg`
@@ -21,6 +21,11 @@ const Contourslide = () => {
   const [isEraserActive, setIsEraserActive] = useState(false);
 
   const scrollSensitivity = 1; // Adjust this value to control the scroll sensitivity
+
+  if (!done) {
+    handleHideNext();
+    handleHidePrev();
+  }
 
   useEffect(() => {
     const canvasElements = canvasRefs.current;
@@ -184,7 +189,9 @@ const Contourslide = () => {
     // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     if (currentImageIndex !== 29) return;
 
-    // setDone(true);
+    setDone(true);
+    handleUnhideNext();
+    handleUnhidePrev();
     // setIsEraserActive(false);
     const loadImage = (src, index) => {
       return new Promise((resolve, reject) => {
@@ -302,16 +309,31 @@ const Contourslide = () => {
             Scan {currentImageIndex + 1} of {imageFiles.length}
           </div>
       </div>
-      <div class="icons">
-        <div class = "icon_button"><button onClick={() => setIsEraserActive(true)}><img class = "contour_icon" src = "eraser_icon.svg" /></button>Eraser</div>
-        <div class = "icon_button"><button onClick={() => setIsEraserActive(false)}><img class = "contour_icon" src = "marker_icon.png" /></button>Marker</div>
-        {currentImageIndex === 29 ? (
-          <div class = "icon_button"><button onClick={putOverlay}><img class = "contour_icon" src = "check_mark_icon.png" /></button>Done!</div>
-        )
-        : (
-          <div class = "icon_button"><button class = "disabled" onClick={putOverlay} disabled><img class = "contour_icon" src = "check_mark_icon.png" /></button>Done?</div>
-        )}
-      </div>
+      {done ? (
+        <div class="contour-done">
+          <p>
+            <em class="blue">Your contour is in blue</em>
+            <br/>
+            <br/>
+            <em class="red">Your attending's contour is in red</em>
+            <br/>
+            <br/>
+            Compare and see how you did!
+          </p>
+        </div>
+      ) : (
+        <div class="icons">
+          <div class = "icon_button"><button onClick={() => setIsEraserActive(true)}><img class = "contour_icon" src = "eraser_icon.svg" /></button>Eraser</div>
+          <div class = "icon_button"><button onClick={() => setIsEraserActive(false)}><img class = "contour_icon" src = "marker_icon.png" /></button>Marker</div>
+          {currentImageIndex === 29 ? (
+            <div class = "icon_button"><button onClick={putOverlay}><img class = "contour_icon" src = "check_mark_icon.png" /></button>Done!</div>
+          )
+          : (
+            <div class = "icon_button"><button class = "disabled" onClick={() => {handleUnhideNext(); handleUnhidePrev(); putOverlay();}} disabled><img class = "contour_icon" src = "check_mark_icon.png" /></button>Done?</div>
+          )}
+        </div>
+      )}
+      
     </div>
     </div>
   );

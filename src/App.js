@@ -150,7 +150,7 @@ const student_slides = [
   ['Placeholder', Studentslide25],
   ['Placeholder', Studentslide26],
   ['Placeholder', Studentslide27],
-  ['Contourintro', Contourintro],
+  ['Contour Intro', Contourintro],
   ['Contour', Contourslide],
   ['Placeholder', Studentslide30],
   ['Placeholder', Studentslide31],
@@ -189,7 +189,9 @@ set.add(JSON.stringify(["resident_slides", 30]));
 set.add(JSON.stringify(["student_slides", 8]));
 set.add(JSON.stringify(["student_slides", 12]));
 set.add(JSON.stringify(["student_slides", 13]));
+set.add(JSON.stringify(["student_slides", 29]));
 set.add(JSON.stringify(["student_slides", 32]));
+
 
 
 
@@ -202,6 +204,8 @@ function App() {
   const[slidesName, setSlidesName] = useState("resident_slides");
   // state variable to keep track of whether the next button should be hidden
   const [hideNext, setHideNext] = useState(false);
+
+  const [hidePrev, setHidePrev] = useState(true);
   //make a const for the current slide
   const CurrentSlideComponent = slides[currentSlide][1];
 
@@ -210,6 +214,7 @@ function App() {
   const handlePrev = () => {
     console.log("handlePrev");
     setHideNext(false);
+    if (hidePrev) return;
     if (currentSlide > 0) {
       console.log(currentSlide);
       setCurrentSlide(currentSlide - 1);
@@ -229,10 +234,20 @@ function App() {
     }
   }
 
+  const handleHidePrev = () => {
+    console.log("handleHidePrev");
+    setHidePrev(true);
+  }
+
+  const handleUnhidePrev = () => {
+    console.log("handleUnhidePrev");
+    setHidePrev(false);
+  }
+
   const handleHideNext = () => {
     console.log("handleHideNext");
     // UNCOMMENT
-    // setHideNext(true);
+    setHideNext(true);
   }
 
   const handleUnhideNext = () => {
@@ -297,10 +312,28 @@ function App() {
               <h1>{slides[currentSlide][0]}</h1>
           </div>
           <div className="content-box">
-            {set.has(JSON.stringify([slidesName, currentSlide])) ? <CurrentSlideComponent handleHideNext={handleHideNext} handleUnhideNext={handleUnhideNext}/> : <CurrentSlideComponent />}
+          {currentSlide === 29 && slidesName === "student_slides" ? (
+  <CurrentSlideComponent
+    handleHideNext={handleHideNext}
+    handleUnhideNext={handleUnhideNext}
+    handleHidePrev={handleHidePrev}
+    handleUnhidePrev={handleUnhidePrev}
+  />
+) : (
+  set.has(JSON.stringify([slidesName, currentSlide])) ? (
+    <CurrentSlideComponent
+      handleHideNext={handleHideNext}
+      handleUnhideNext={handleUnhideNext}
+    />
+  ) : (
+    <CurrentSlideComponent />
+  )
+)}
+
+            {/* {currentSlide === 29 && slidesName === "student_slides"} ? <CurrentSlideComponent handleHideNext={handleHideNext} handleUnhideNext={handleUnhideNext} handleHidePrev={handleHidePrev} handleUnhidePrev={handleUnhidePrev}/> : (set.has(JSON.stringify([slidesName, currentSlide])) ? <CurrentSlideComponent handleHideNext={handleHideNext} handleUnhideNext={handleUnhideNext}/> : <CurrentSlideComponent />)} */}
           </div>
           <div className="button-group">
-              <button onClick={handlePrev} className="prev">Back</button>
+              <button onClick={handlePrev} disabled={hidePrev} className="prev">Back</button>
               <p>{currentSlide} / {slides.length - 1}</p>
               <button onClick={handleNext} className="next" disabled={hideNext} background-color='gray'>Next</button>
           </div>
