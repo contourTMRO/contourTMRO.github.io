@@ -205,7 +205,7 @@ function App() {
   // state variable to keep track of whether the next button should be hidden
   const [hideNext, setHideNext] = useState(false);
 
-  const [hidePrev, setHidePrev] = useState(true);
+  const [hidePrev, setHidePrev] = useState(false);
   //make a const for the current slide
   const CurrentSlideComponent = slides[currentSlide][1];
 
