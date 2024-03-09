@@ -43,7 +43,7 @@ function Residentslide13({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>B. 48 Gy</p>
+            <p style={{ color: "#00FF00" }}>B. 48 Gy</p>
             <p>
               48 Gy is the recommended EQD2 to 90% of the CTV volume (D90) for
               stage I endometrial cancer treated with BT alone.

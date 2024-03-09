@@ -40,11 +40,11 @@ ol {
 }
 
 p em {
-  color: green;
+  color: lightskyblue;
 }
 
 li em {
-  color: green;
+  color: lightskyblue;
 }
 
 .sslide3_image {
@@ -85,7 +85,7 @@ li em {
 }
 
 .circle {
-  border: 3px solid green; /* Adjust the border color and width as needed */
+  border: 3px solid #00FF00; /* Adjust the border color and width as needed */
   border-radius: 50%;
   width: 400px; /* Adjust the width as needed */
   height: 400px; /* Adjust the height as needed */

@@ -42,7 +42,7 @@ function Residentslide23({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>B. Ring & Tandem</p>
+            <p style={{ color: "#00FF00" }}>B. Ring & Tandem</p>
             <img src="ring_tandem.png"></img>
             <p>
               Ring & tandem or tandem & ovoids would both be appropriate to

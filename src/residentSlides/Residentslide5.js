@@ -42,7 +42,7 @@ function Residentslide5({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>A. Brachytherapy alone</p>
+            <p style={{ color: "#00FF00" }}>A. Brachytherapy alone</p>
             <p>
               Normally, endometrial cancer should be surgically staged with
               total hysterectomy & bilateral salpingo-oophorectomy +/- sentinel

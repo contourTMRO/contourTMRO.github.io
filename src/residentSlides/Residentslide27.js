@@ -42,7 +42,7 @@ function Residentslide27({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>
+            <p style={{ color: "#00FF00" }}>
               B. The whole cervix + tumor extent at time of brachytherapy
             </p>
             <p>

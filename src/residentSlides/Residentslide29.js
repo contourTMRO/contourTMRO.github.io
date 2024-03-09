@@ -41,7 +41,7 @@ function Residentslide29({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>C. At least 90 Gy</p>
+            <p style={{ color: "#00FF00" }}>C. At least 90 Gy</p>
             <p>
               EMBRACE II is a multicenter prospective study which aims to
               document local control rates using advanced EBRT (IMRT & IGRT) and

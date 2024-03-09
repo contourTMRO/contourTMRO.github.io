@@ -48,7 +48,7 @@ function Residentslide10({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>C. T2-weighted MRI</p>
+            <p style={{ color: "#00FF00" }}>C. T2-weighted MRI</p>
             <p>
               T2-weighted imaging is the key sequence in evaluation of
               myometrial invasion. This sequence depicts uterine zonal anatomy

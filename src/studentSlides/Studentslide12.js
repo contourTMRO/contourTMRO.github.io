@@ -39,7 +39,7 @@ function Studentslide12( { handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>
+            <p style={{ color: "#00FF00" }}>
               A. Yes - we can deliver palliative radiation to help with his pain
               and bleeding
             </p>

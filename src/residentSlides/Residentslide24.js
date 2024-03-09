@@ -42,7 +42,7 @@ function Residentslide24({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>
+            <p style={{ color: "#00FF00" }}>
               B. 28 Gy in 4 Fx delivered in 2 fractions per week
             </p>
             <p>

@@ -22,7 +22,7 @@ function Studentslide35() {
             <br/>
             <em class="yellow">100%</em>
             <br/>
-            <em>90%</em>
+            <em style={{color: "#00FF00"}}>90%</em>
             <br/>
             <em class="blue">80%</em>
             <br/>

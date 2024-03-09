@@ -33,7 +33,7 @@ function Studentslide32({ handleHideNext, handleUnhideNext }) {
         {buttonAnswer ? (
           <div className="correct-answer">
             <img style={{ width: '200px' }} src="sslide32_scan1.png" alt="Scan 1" />
-            <p style={{ color: "green" }}>
+            <p style={{ color: "#00FF00" }}>
               A. AP/PA (anterior posterior/posterior anterior)
             </p>
             <p>

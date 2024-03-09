@@ -38,7 +38,7 @@ function Residentslide21({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>
+            <p style={{ color: "#00FF00" }}>
               D. RT to pelvis followed by brachytherapy boost to cervix/tumor
             </p>
             <p>

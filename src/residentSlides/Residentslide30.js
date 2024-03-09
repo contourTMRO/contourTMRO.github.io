@@ -42,7 +42,7 @@ function Residentslide30({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>
+            <p style={{ color: "#00FF00" }}>
               C. Bladder: 90 Gy; Rectum/Sigmoid: 75 Gy; Small Bowel: 75 Gy
             </p>
             <p>

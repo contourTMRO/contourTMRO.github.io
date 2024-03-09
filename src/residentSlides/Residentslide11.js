@@ -43,7 +43,7 @@ function Residentslide10({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>
+            <p style={{ color: "#00FF00" }}>
               B. CTV includes the entire uterus, cervix, and upper 1-2 cm of the
               vagina.
             </p>

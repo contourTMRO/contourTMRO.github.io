@@ -38,7 +38,7 @@ function Residentslide19({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>A. Parametrial invasion</p>
+            <p style={{ color: "#00FF00" }}>A. Parametrial invasion</p>
             <p>
               Cervical cancer is stage II if it invades beyond the uterus but
               does not involve lower 1/3 of vagina or pelvic sidewall.

@@ -41,7 +41,7 @@ function Studentslide13({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>D. Stage IV</p>
+            <p style={{ color: "#00FF00" }}>D. Stage IV</p>
             <p>
               The answer is D. Distant metastasis automatically makes cancer stage IV. This pattern applies to nearly 
               all cancers.

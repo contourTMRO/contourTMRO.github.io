@@ -44,7 +44,7 @@ function Residentslide25({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>A. 49 days</p>
+            <p style={{ color: "#00FF00" }}>A. 49 days</p>
             <p>
               In the retroEMBRACE series, median overall treatment time (OTT)
               was 49 days. Increase in OTT by just one week was equivalent to a

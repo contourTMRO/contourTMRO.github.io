@@ -49,7 +49,7 @@ function Studentslide8({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>F. All of the above</p>
+            <p style={{ color: "#00FF00" }}>F. All of the above</p>
             <p>
               The answer is F. All of the above are true!
               <br/>

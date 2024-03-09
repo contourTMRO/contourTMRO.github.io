@@ -42,7 +42,7 @@ function Residentslide5({ handleHideNext, handleUnhideNext }) {
       <div>
         {buttonAnswer ? (
           <div class="correct-answer">
-            <p style={{ color: "green" }}>C. Tandem & cylinder</p>
+            <p style={{ color: "#00FF00" }}>C. Tandem & cylinder</p>
             <img src="tandem_cylinder.png"></img>
             <p>
               Tandem & cylinder would be the preferred applicator for our
