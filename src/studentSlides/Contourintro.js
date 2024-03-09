@@ -8,7 +8,7 @@ function Contourintro() {
         You will now attempt to contour the GTV!
       </p>
       <p>
-        On the next slide you will see a series of images that make up a CT scan. Scroll through the images using your scroll wheel or the up and down arrow keys.
+        On the next slide you will see a series of images that make up a CT scan. Scroll through the images using your trackpad scrolling, scroll wheel on a mouse, or the up and down arrow keys on your keyboard.
       </p>
       <p>
         Use your mouse to draw a contour the GTV that you see on each image. (Hint: the GTV is not visible in every image, so it is okay to skip some images!)

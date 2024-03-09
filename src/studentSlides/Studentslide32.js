@@ -96,7 +96,7 @@ function Studentslide32({ handleHideNext, handleUnhideNext }) {
             </div>
           </div>
         )}
-        {answerSelected && (
+        {answerSelected && !buttonAnswer && (
           <p style={{ gridColumn: "span 2", textAlign: "center", color: "red" }}>Incorrect answer. Try again.</p>
         )}
       </div>

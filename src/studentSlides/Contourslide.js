@@ -306,7 +306,7 @@ const Contourslide = ({ handleHideNext, handleUnhideNext, handleHidePrev, handle
             ))}
           </div>
           <div className="canvas-counter">
-            Scan {currentImageIndex + 1} of {imageFiles.length}
+            Image {currentImageIndex + 1} of {imageFiles.length}
           </div>
       </div>
       {done ? (
