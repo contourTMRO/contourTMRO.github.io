@@ -33,7 +33,10 @@ function Residentslide21({ handleHideNext, handleUnhideNext }) {
   return (
     <div class="body">
       <div class="question">
-        <p>What is the recommended treatment for our patient with stage IIB squamous cell carcinoma of the cervix?</p>
+        <p>
+          What is the recommended treatment for our patient with stage IIB
+          squamous cell carcinoma of the cervix?
+        </p>
       </div>
       <div>
         {buttonAnswer ? (
@@ -96,8 +99,8 @@ function Residentslide21({ handleHideNext, handleUnhideNext }) {
                   }}
                 ></button>
                 <p style={{ color: button2Color }}>
-                  B. External beam radiotherapy (EBRT) to pelvis with sequential
-                  EBRT boost to cervix/tumor
+                  B. ChemoRT to pelvis with sequential EBRT boost to
+                  cervix/tumor
                 </p>
               </label>
             </div>
@@ -133,8 +136,8 @@ function Residentslide21({ handleHideNext, handleUnhideNext }) {
                   }}
                 ></button>
                 <p>
-                  D. EBRT to pelvis followed by brachytherapy boost to
-                  cervix/tumor
+                  D. ChemoRT to pelvis followed by brachytherapy boost to
+                  cervix/tumor.
                 </p>
               </label>
             </div>
